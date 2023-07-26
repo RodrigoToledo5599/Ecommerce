@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Models
 {
@@ -11,13 +12,15 @@ namespace Models
         [StringLength(255)]
         public string Name { get; set; }
 
-        [StringLength(255)]
+        [StringLength(511)]
         public string? Descricao { get; set; }
 
         public float Price { get; set; }
 
-        [StringLength(255)]
-        public string? Categoria { get; set; }
+        public int? CategoriaId { get;}
+        [ForeignKey("CategoriaId")]
+        public Category? Categoria { get; set; }
+
 
 
     }

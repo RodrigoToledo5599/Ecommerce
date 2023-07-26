@@ -1,4 +1,5 @@
 ﻿using Data;
+using Data.Unit;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 
@@ -7,8 +8,8 @@ namespace EcommerceWeb.Areas.Admin.Controllers
     [BindProperties]
     public class MainPageController : Controller
     {
-        public AppDbContext _db { get; set; }
-        public MainPageController (AppDbContext db)
+        public IUnitOfWork _db { get; set; }
+        public MainPageController (IUnitOfWork db)
         {
             _db = db;
         }
@@ -17,7 +18,7 @@ namespace EcommerceWeb.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            List<Produto> produtos = _db.Produto.ToList();
+            var produtos = _db.Produto.GetAll();
             return View(produtos);
         }
 
