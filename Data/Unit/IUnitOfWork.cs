@@ -10,5 +10,6 @@ namespace Data.Unit
     public interface IUnitOfWork 
     {
         IProdutoRepository Produto { get; }
+        ICategoryRepository Category { get; }
     }
 }

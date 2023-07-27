@@ -12,11 +12,14 @@ namespace Data.Unit
     {
         public AppDbContext _db;
         public IProdutoRepository Produto { get; private set; }
+        public ICategoryRepository Category { get; private set; }
 
         public UnitOfWork(AppDbContext db)
         {
             _db = db;
             Produto = new ProdutoRepository(_db);
+            Category = new CategoryRepository(_db);
+
         }
 
     }

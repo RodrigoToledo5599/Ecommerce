@@ -53,7 +53,7 @@
             <tr>
                 <td>Categoria:</td>
                 <td></td>
-                <td>@Model.Categoria</td>
+                <td>@Model.CategoriaId</td>
             </tr>
         }
        
@@ -65,4 +65,9 @@
 </table>
 <br>
 <br>
-<a asp-area="Admin" asp-controller="MainPage" asp-action="Index">Back To Main Page</a>
+<a asp-area="Admin" asp-controller="MainPage" asp-action="Index">Back to main page</a>
+<br>
+<a asp-area="Admin" asp-controller="FullProductPage" asp-action="Edit">Editar</a>
+<br>
+<a asp-area="Admin" asp-controller="FullProductPage" asp-action="Delete">Deletar</a>
+

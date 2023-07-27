@@ -1,10 +1,12 @@
 ﻿using Data;
 using Data.Unit;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Models;
 
 namespace EcommerceWeb.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     [BindProperties]
     public class MainPageController : Controller
     {
@@ -15,15 +17,22 @@ namespace EcommerceWeb.Areas.Admin.Controllers
         }
 
 
-
+        #region Index
         public IActionResult Index()
         {
             var produtos = _db.Produto.GetAll();
+            IEnumerable<SelectListItem> ListaDeCategoria = _db.Category.GetAll().Select(u => new SelectListItem
+            {
+                Text = u.Name,
+                Value = u.Id.ToString(),
+            });
+            
+            ViewBag.ListaDeCategoria = ListaDeCategoria;
+
             return View(produtos);
         }
 
-
-
+        #endregion
 
     }
 }
