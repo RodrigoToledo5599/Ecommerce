@@ -10,7 +10,7 @@ namespace Data
 
         public DbSet<Produto> Produto { get; set; }
         public DbSet<Category> Category { get; set; }
-
+        public DbSet<ApplicationUser> ApplicationUser { get; set; }
 
 
         //public virtual DbContextOptionsBuilder EnableSensitiveDataLogging(bool sensitiveDataLoggingEnabled = true);

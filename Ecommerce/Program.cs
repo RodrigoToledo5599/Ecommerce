@@ -20,6 +20,7 @@ namespace Ecommerce
 
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<AppDbContext>();
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+            builder.Services.AddScoped<IUnitOfWorkUser, UnitOfWorkUser>();
             builder.Services.AddRazorPages();
             builder.Services.AddControllersWithViews();
             var app = builder.Build();

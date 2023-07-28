@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Models;
 
-namespace Data.Unit
+namespace Data.IRepository
 {
-    public interface IUnitOfWorkCliente
+    public interface IProdutoRepositoryUser : IRepositoryUser<Produto>
     {
-        
+
     }
 }
