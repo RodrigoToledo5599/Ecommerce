@@ -8,6 +8,7 @@ using Models;
 namespace EcommerceWeb.Areas.Admin.Controllers
 {
     //[BindProperties]
+    [Area("Admin")]
     public class FullProductPageController : Controller
     {
         public IUnitOfWork _db { get; set; }

@@ -39,11 +39,11 @@ namespace Ecommerce
 
             app.UseAuthorization();
 
+            app.MapRazorPages();
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{area=Admin}/{controller=MainPage}/{action=Index}/{id?}");
 
-            app.MapRazorPages();
 
             app.Run();
         }
