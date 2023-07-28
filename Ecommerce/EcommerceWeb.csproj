@@ -26,4 +26,11 @@
 	  <ProjectReference Include="..\Models\Models.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Areas\User\Controllers\" />
+	  <Folder Include="Areas\User\Data\" />
+	  <Folder Include="Areas\User\Models\" />
+	  <Folder Include="Areas\User\Views\" />
+	</ItemGroup>
+
 </Project>

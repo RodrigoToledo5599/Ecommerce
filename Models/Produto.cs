@@ -17,7 +17,7 @@ namespace Models
 
         public float Price { get; set; }
         
-        public int? CategoriaId { get;}
+        public int? CategoriaId { get; set; }
         [ForeignKey("CategoriaId")]
         public Category Categoria { get; set; }
         

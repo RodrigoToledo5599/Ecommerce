@@ -21,7 +21,10 @@ namespace EcommerceWeb.Areas.Admin.Controllers
         #region Index/Details
         public IActionResult Index(int id)
         {
-            Produto produto = _db.Produto.GetById(c => c.Id == id); 
+
+            Produto produto = _db.Produto.GetById(c => c.Id == id);
+            Category Categoria = _db.Category.GetById(c=>c.Id == produto.CategoriaId);
+            ViewData["Categoria"] = Categoria.Name; 
             return View(produto);
         }
         #endregion

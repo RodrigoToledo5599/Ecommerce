@@ -63,7 +63,7 @@
             <tr>
                 <td>Categoria:</td>
                 <td></td>
-                <td>@Model.CategoriaId</td>
+                <td>@ViewData["Categoria"]</td>
             </tr>
         }
        
@@ -79,6 +79,7 @@
 <button class="btn btn-primary "><a class="text-white" href="/Admin/FullProductPage/Edit/@Model.Id">Editar</a> </button>
 <button onclick="@clickDeleteEvent()" class="btn btn-primary text-white ">Deletar </button>
 
+@*
 
 @if(clickDelete == true)
 {
@@ -95,6 +96,7 @@ else
 {
     
 }
+*@
 
 
 
