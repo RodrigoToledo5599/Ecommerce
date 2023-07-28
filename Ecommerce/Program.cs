@@ -3,6 +3,7 @@ using Data.IRepository;
 using Data.Unit;
 using Microsoft.EntityFrameworkCore;
 using NuGet.Protocol.Core.Types;
+using Microsoft.AspNetCore.Identity;
 
 namespace Ecommerce
 {
@@ -16,6 +17,8 @@ namespace Ecommerce
             var connectionString = builder.Configuration.GetConnectionString("Default");
             builder.Services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(connectionString));
+
+            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<AppDbContext>();
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddRazorPages();
             builder.Services.AddControllersWithViews();
