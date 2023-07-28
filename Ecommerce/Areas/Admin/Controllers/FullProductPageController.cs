@@ -43,20 +43,15 @@ namespace EcommerceWeb.Areas.Admin.Controllers
 
         #region Delete
 
-        public IActionResult Delete(int id)
-        {
-            Produto produto = _db.Produto.GetById(c => c.Id == id);
-            return View(produto);
-        }
+
 
 
         [HttpPost]
         public IActionResult Delete(Produto produto)
         {
             _db.Produto.Delete(produto);
-            return RedirectToAction("Index");
+            return RedirectToAction("Admin/MainPage/Index");
         }
-
 
         #endregion
     }
