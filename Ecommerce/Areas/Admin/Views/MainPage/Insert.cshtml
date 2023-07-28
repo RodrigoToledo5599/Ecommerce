@@ -1,21 +1,22 @@
 ﻿@using Models;
 @model Produto
 
+<a asp-action="Index">voltar para o menu principal</a>
 <br>
 <br>
 
-<h1>Editando o Produto</h1>
+<h1>Criando um Produto</h1>
 
 <form method="post">
-	
+	@*
 
 	<div class="row">
-	<label asp-for="Id" class="p-0">Id</label>
-	<input asp-for="Id" class="form-control">
-	<span asp-validation-for="Id" class="text-danger"></span>
+		<label asp-for="Id" class="p-0">Nome</label>
+		<input asp-for="Id" class="form-control">
+		<span asp-validation-for="Id" class="text-danger"></span>
 	</div>
 	<br>
-	
+	*@
 
 	<div class="row">
 		<label asp-for="Name" class="p-0">Name</label>
@@ -43,16 +44,15 @@
 		<input asp-for="CategoriaId" class="form-control">
 		<span asp-validation-for="CategoriaId" class="text-danger"></span>
 	</div>
-	<br>
-
-	
-	<br>
 
 	<br>
 	<br>
 
-	<button class="btn btn-primary" asp-area="Admin" asp-controller="FullProductPage" asp-action="Edit">Salvar Alterações</button>
+	<button class="btn btn-primary" asp-area="Admin" asp-controller="MainPage" asp-action="Insert">Adicionar</button>
 
 
 
 </form>
+<br>
+<br>
+<button class="btn btn-primary" asp-area="Admin" asp-controller="MainPage" asp-action="Index">Voltar ao menu</button>

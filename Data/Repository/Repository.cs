@@ -30,9 +30,9 @@ namespace Data.Repository
             return entity;
         }
 
-        IList<T> IRepository<T>.GetAll()
+        IEnumerable<T> IRepository<T>.GetAll()
         {
-            IList<T> list =_db.Set<T>().ToList();
+            IEnumerable<T> list =_db.Set<T>().ToList();
             return list;
 
         }

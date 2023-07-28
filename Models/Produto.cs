@@ -16,11 +16,11 @@ namespace Models
         public string? Descricao { get; set; }
 
         public float Price { get; set; }
-
+        
         public int? CategoriaId { get;}
         [ForeignKey("CategoriaId")]
-        public Category? Categoria { get; set; }
-
+        private Category? Categoria { get; set; }
+        
 
 
     }

@@ -7,7 +7,7 @@ using Models;
 
 namespace EcommerceWeb.Areas.Admin.Controllers
 {
-    [BindProperties]
+    //[BindProperties]
     public class FullProductPageController : Controller
     {
         public IUnitOfWork _db { get; set; }
@@ -37,22 +37,6 @@ namespace EcommerceWeb.Areas.Admin.Controllers
         {
             _db.Produto.Edit(produto);
             return View(produto);
-        }
-
-        #endregion
-
-        #region Insert
-
-        public IActionResult Add() 
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Add(Produto produto)
-        {
-            _db.Produto.Insert(produto);
-            return View();
         }
 
         #endregion
