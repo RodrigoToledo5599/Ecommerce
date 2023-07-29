@@ -24,7 +24,7 @@ namespace EcommerceWeb.Areas.User.Controllers
         #endregion
 
         #region Details
-        public IActionResult Index(int id)
+        public IActionResult Details(int id)
         {
 
             Produto produto = _db.Produto.GetById(c => c.Id == id);

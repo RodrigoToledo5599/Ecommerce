@@ -1,0 +1,61 @@
+﻿@using Models;
+@model Produto
+
+<table class="table table-dark d-flex flex-row">
+    <tbody>
+
+        <tr>
+            <td>Name:</td>
+            <td></td>
+            <td>@Model.Name</td>
+        </tr>
+
+        <tr>
+            <td>Price:</td>
+            <td></td>
+            <td>@Model.Price</td>
+        </tr>
+
+        @if (string.IsNullOrEmpty(Model.Descricao))
+        {
+            <tr>
+                <td>Descrição:</td>
+                <td></td>
+                <td>N/A</td>
+            </tr>
+        }
+        else
+        {
+            <tr>
+                <td>Descrição:</td>
+                <td></td>
+                <td>@Model.Descricao</td>
+            </tr>
+        }
+
+
+        @if (Model.CategoriaId == null)
+        {
+            <tr>
+                <td>Categoria:</td>
+                <td></td>
+                <td>N/A</td>
+            </tr>
+        }
+        else
+        {
+            <tr>
+                <td>Categoria:</td>
+                <td></td>
+                <td>@ViewData["Categoria"]</td>
+            </tr>
+        }
+
+
+
+
+    </tbody>
+
+</table>
+<br>
+<br>
