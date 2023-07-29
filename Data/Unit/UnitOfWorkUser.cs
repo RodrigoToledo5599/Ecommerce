@@ -11,11 +11,13 @@ namespace Data.Unit
     public class UnitOfWorkUser : IUnitOfWorkUser
     {
         public AppDbContext _db;
-        public IProdutoRepositoryUser Produto { get; set; }
+        public IProdutoRepositoryUser Produto { get; }
+        public ICategoryRepositoryUser Category { get; }
 
         public UnitOfWorkUser(AppDbContext db)
         {
             _db = db;
+            Category = new CategoryRepositoryUser(_db);
             Produto = new ProdutoRepositoryUser(_db);
         }
 

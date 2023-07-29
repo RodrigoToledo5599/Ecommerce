@@ -10,7 +10,7 @@ namespace Data.Repository
 {
     public class RepositoryUser<T> : IRepositoryUser<T> where T : class
     {
-        protected AppDbContext _db { get; set; }
+        public AppDbContext _db { get; set; }
 
         public RepositoryUser(AppDbContext db)
         {

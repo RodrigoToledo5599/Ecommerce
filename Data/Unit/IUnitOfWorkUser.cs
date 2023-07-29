@@ -9,6 +9,7 @@ namespace Data.Unit
 {
     public interface IUnitOfWorkUser
     {
+        ICategoryRepositoryUser Category { get; }
         IProdutoRepositoryUser Produto { get; }
     }
 }

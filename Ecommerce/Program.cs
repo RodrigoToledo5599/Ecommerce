@@ -43,7 +43,7 @@ namespace Ecommerce
             app.MapRazorPages();
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{area=Admin}/{controller=MainPage}/{action=Index}/{id?}");
+                pattern: "{area=User}/{controller=Products}/{action=Index}/{id?}");
 
 
             app.Run();
