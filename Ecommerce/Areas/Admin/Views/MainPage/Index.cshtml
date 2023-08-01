@@ -1,33 +1,44 @@
 ﻿@using Models;
 @model List<Produto>
 
-<button class="btn btn-primary "><a class="text-white" asp-action="Insert">Adicionar um produto</a> </button>
-<br>
-<br>
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Price</th>
-            <th scope="col">Full Product</th>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/Admin/MainPage/Index.css" />
+    
+</head>
+<body>
 
-        </tr>
-    </thead>
-    <tbody>
-        @foreach(var prod in Model)
-        {
+    <button class="btn btn-primary "><a class="text-white" asp-action="Insert">Adicionar um produto</a> </button>
+    <br>
+    <br>
+    <table class="table">
+        <thead>
             <tr>
-                <td>@prod.Name</td>
-                <td>@prod.Price</td>
-                <td><a href="Admin/FullProductPage/Index/@prod.Id">All About it</a></td>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Full Product</th>
+
             </tr>
+        </thead>
+        <tbody>
+            @foreach(var prod in Model)
+            {
+                <tr>
+                    <td>@prod.Name</td>
+                    <td>@prod.Price</td>
+                    <td><a href="Admin/FullProductPage/Index/@prod.Id">All About it</a></td>
+                </tr>
 
 
 
 
-        }
+            }
         
         
         
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</body>
