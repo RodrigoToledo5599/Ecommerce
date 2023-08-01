@@ -2,13 +2,7 @@
 @model List<Produto>
 
 <head>
-    
-    
-    
-    
     <link rel="stylesheet" href="~/css/User/Products/Index.css" />
-
-
 </head>
 
 
@@ -16,32 +10,34 @@
 
     <br>
     <br>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Price</th>
-                <th scope="col">Full Product</th>
-
-            </tr>
-        </thead>
-        <tbody>
+    <section>
+        <div class="container ListaDeProdutos">
             @foreach (var prod in Model)
             {
-                <tr>
-                    <td></td>
-                    <td>@prod.Name</td>
-                    <td>@prod.Price</td>
-                    <td><a href="User/Products/Details/@prod.Id">All About it</a></td>
-                </tr>
+                <a href="User/Products/Details/@prod.Id">
+                    <div class="produto row text-bg-secondary text-white p-2">
+                        <div class="imagem col-6"></div>
 
 
 
+                        <div class="col-6">
 
+                            <div class="row">
+                                <p>@prod.Name</p>
+                            </div>
+
+                            <div class="row ">
+                                <p>R$ @prod.Price</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </a>
             }
+        </div>
+    </section>
 
 
-
-        </tbody>
-    </table>
+	
+    
 </body>
