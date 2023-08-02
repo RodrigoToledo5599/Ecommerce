@@ -16,10 +16,8 @@
             @foreach (var prod in Model)
             {
                 <a href="User/Products/Details/@prod.Id">
-                    <div class="produto row text-bg-secondary text-white p-2">
+                    <div class="produto row text-dark p-2">
                         <div class="imagem col-6"></div>
-
-
 
                         <div class="col-6"> 
                             <div class="row">
@@ -29,6 +27,7 @@
                             <div class="row ">
                                 <p>R$ @prod.Price</p>
                             </div>
+
                         </div>
                         
                     </div>
