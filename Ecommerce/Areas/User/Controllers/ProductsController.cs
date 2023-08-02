@@ -1,6 +1,7 @@
 ﻿using Data.Unit;
 using Microsoft.AspNetCore.Mvc;
 using Models;
+using Models.ViewModels;
 
 namespace EcommerceWeb.Areas.User.Controllers
 {
@@ -18,7 +19,15 @@ namespace EcommerceWeb.Areas.User.Controllers
         public IActionResult Index()
         {
             var produtos = _db.Produto.GetAll();
-            return View(produtos);
+            List<ProdutoVM> prods = new List<ProdutoVM>();
+
+            foreach(Produto prod in produtos)
+            {
+                ProdutoVM prodvm = new ProdutoVM(prod);
+                prods.Add(prodvm);
+            }
+            
+            return View(prods);
         }
 
         #endregion
@@ -28,9 +37,10 @@ namespace EcommerceWeb.Areas.User.Controllers
         {
 
             Produto produto = _db.Produto.GetById(c => c.Id == id);
+            ProdutoVM prodvm = new ProdutoVM(produto);
             Category Categoria = _db.Category.GetById(c => c.Id == produto.CategoriaId);
             ViewData["Categoria"] = Categoria.Name;
-            return View(produto);
+            return View(prodvm);
         }
         #endregion
     }

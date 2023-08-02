@@ -1,5 +1,6 @@
 ﻿@using Models;
-@model List<Produto>
+@using Models.ViewModels;
+@model List<ProdutoVM>
 
 <head>
     <link rel="stylesheet" href="~/css/User/Products/Index.css" />
@@ -20,8 +21,7 @@
 
 
 
-                        <div class="col-6">
-
+                        <div class="col-6"> 
                             <div class="row">
                                 <p>@prod.Name</p>
                             </div>
