@@ -2,11 +2,6 @@
 @model Produto
 
 @{
-    bool clickDelete = false;
-    object clickDeleteEvent()
-    {
-        return clickDelete = true;
-    }
 
 }
 
@@ -76,25 +71,8 @@
 <br>
 <br>
 
-<button class="btn btn-primary "><a class="text-white" href="/Admin/FullProductPage/Edit/@Model.Id">Editar</a> </button>
-<button onclick="@clickDeleteEvent()" class="btn btn-primary text-white ">Deletar </button>
 
 
-@if(clickDelete == true)
-{
-    <form method="post">
-        <p class="text"> Vc tem certeza que quer excluir?</p>
-        <button class="btn btn-primary" asp-action="Delete">Yes</button>
-    </form>
-    <br>
-    <form method="get">
-        <button class="btn btn-primary" asp-action="Index/@Model.Id">No</button>
-    </form>
-}
-else
-{
-    
-}
 
 
 

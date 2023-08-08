@@ -1,0 +1,88 @@
+﻿@using Models;
+@model Produto
+
+@{
+    
+
+}
+<a asp-action="Index">voltar para o menu principal</a>
+
+<form method="post">
+
+    <table class="table table-dark d-flex flex-row">
+        <tbody>
+
+            <tr>
+                <td>Id:</td>
+                <td></td>
+                <td>@Model.Id</td>
+            </tr>
+
+            <tr>
+                <td>Name:</td>
+                <td></td>
+                <td>@Model.Name</td>
+            </tr>
+
+            <tr>
+                <td>Price:</td>
+                <td></td>
+                <td>@Model.Price</td>
+            </tr>
+
+            @if (string.IsNullOrEmpty(Model.Descricao))
+            {
+                <tr>
+                    <td>Descrição:</td>
+                    <td></td>
+                    <td>N/A</td>
+                </tr>
+            }
+            else
+            {
+                <tr>
+                    <td>Descrição:</td>
+                    <td></td>
+                    <td>@Model.Descricao</td>
+                </tr>
+            }
+
+
+            @if (Model.CategoriaId == null)
+            {
+                <tr>
+                    <td>Categoria:</td>
+                    <td></td>
+                    <td>N/A</td>
+                </tr>
+            }
+            else
+            {
+                <tr>
+                    <td>Categoria:</td>
+                    <td></td>
+                    <td>@Model.CategoriaId</td>
+                </tr>
+            }
+
+
+
+
+        </tbody>
+
+    </table>
+    <br>
+    <br>
+
+    <h1>Você tem certeza que quer deletar este item?</h1>
+
+    <button class="btn btn-primary ">Deletar</button>
+
+</form>
+
+
+
+
+
+
+

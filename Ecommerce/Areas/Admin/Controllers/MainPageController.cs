@@ -45,10 +45,54 @@ namespace EcommerceWeb.Areas.Admin.Controllers
         public IActionResult Insert(Produto produto)
         {
             _db.Produto.Insert(produto);
-            return View();
+            return RedirectToAction("Index");
         }
 
         #endregion
 
+        #region Details
+        public IActionResult Details(int id)
+        {
+            Produto produto = _db.Produto.GetById(c => c.Id == id);
+            return View(produto);
+        }
+        #endregion
+
+        #region Edit
+        public IActionResult Edit(int id)
+        {
+            var produto = _db.Produto.GetById(c => c.Id == id);
+            return View(produto);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Produto produto)
+        {
+            _db.Produto.Edit(produto);
+            return View(produto);
+        }
+
+        #endregion
+
+        #region Delete
+
+
+        public IActionResult Delete(int id)
+        {
+            var produto =_db.Produto.GetById(c => c.Id == id);
+            return View(produto);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Produto produto)
+        {
+            _db.Produto.Delete(produto);
+            return RedirectToAction("Index");
+        }
+
+        #endregion
+
+
     }
+
 }

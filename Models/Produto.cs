@@ -19,7 +19,7 @@ namespace Models
         
         public int? CategoriaId { get;}
         [ForeignKey("CategoriaId")]
-        private Category? Categoria { get; set; }
+        public Category? Categoria { get; set; }
         
 
 

@@ -9,7 +9,9 @@
         <tr>
             <th scope="col">Name</th>
             <th scope="col">Price</th>
-            <th scope="col">Full Product</th>
+            <th scope="col">Details</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
 
         </tr>
     </thead>
@@ -19,7 +21,9 @@
             <tr>
                 <td>@prod.Name</td>
                 <td>@prod.Price</td>
-                <td><a href="Admin/FullProductPage/Index/@prod.Id">All About it</a></td>
+                <td><a href="Admin/MainPage/Details/@prod.Id">Detalhes</a></td>
+                <td><a href="Admin/MainPage/Edit/@prod.Id">Editar</a></td>
+                <td><a href="Admin/MainPage/Delete/@prod.Id">Deletar</a></td>
             </tr>
 
 
