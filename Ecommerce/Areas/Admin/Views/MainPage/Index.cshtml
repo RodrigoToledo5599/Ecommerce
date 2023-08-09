@@ -1,48 +1,44 @@
 ﻿@using Models;
 @model List<Produto>
 
-<button class="btn btn-primary "><a class="text-white" asp-action="Insert">Adicionar um produto</a> </button>
+<a class="text-white" asp-action="Insert"> <button class="btn btn-primary ">Adicionar um produto </button></a>
 <br>
 <br>
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Price</th>
-            <th scope="col"></th>
-            <th scope="col">Options</th>
-            <th scope="col"></th>
-            
-            
-
-        </tr>
-    </thead>
-    <tbody>
-        @foreach(var prod in Model)
-        {
-            <tr>
-                <td>@prod.Name</td>
-                <td>@prod.Price</td>
-                <td>
-                        <button class="btn btn-primary"> <a class="text-white" href="Admin/MainPage/Details/@prod.Id"> Detalhes </a> </button>
-                </td>
-
-                <td>
-                    <button class="btn btn-primary"><a class="text-white" href="Admin/MainPage/Edit/@prod.Id"> Editar </a> </button>
-                </td>
-                
-                <td>
-                        <button class="btn btn-danger"><a class="text-white" href="Admin/MainPage/Delete/@prod.Id"> Deletar </a> </button>    
-                </td>
-                
-            </tr>
+<head>
+    <link rel="stylesheet" href="~/css/Admin/MainPage/Index.css" />
+</head>
 
 
+<body>
+
+    <br>
+    <br>
+    <section>
+        <div class="container ListaDeProdutos">
+            @foreach (var prod in Model)
+            {
+                <a href="Admin/MainPage/Details/@prod.Id">
+                    <div class="produto row p-2">
+                        <div class="imagem col-6"></div>
+                        <br>
+                        <div class="col-6">
+                            <div class="row">
+                                <p>@prod.Name</p>
+                            </div>
+
+                            <div class="row ">
+                                <p>R$ @prod.Price</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </a>
+            }
+        </div>
+    </section>
 
 
-        }
-        
-        
-        
-    </tbody>
-</table>
+
+
+</body>

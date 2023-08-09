@@ -1,4 +1,18 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿const nightButton = document.getElementById('NightOrDay');
+const body = document.body;
+var noite = false;
 
-// Write your JavaScript code.
+
+nightButton.addEventListener('click', toggleNight);
+
+function toggleNight() {
+    if (noite === false) {
+        body.style.backgroundColor = "rgb(40,40,40)";
+        noite = true;
+    }
+    else {
+        body.style.backgroundColor = "rgb(255,255,255)";
+        noite = false;
+    }
+}
+

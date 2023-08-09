@@ -1,0 +1,40 @@
+﻿﻿.produto {
+    display: flex;
+    align-items: normal;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: darkgray;
+    border: 1px solid aqua;
+    width: 180px;
+    height: 350px;
+    margin: 20px;
+    border: solid 1px black;
+}
+
+
+.produto:hover {
+    width: 190px;
+    height: 365px;
+    transition: 1.0s;
+    z-index: 1;
+}
+/*
+.produto .imagem:hover{
+    width:130px;
+    height:130px;
+}
+*/
+
+.imagem {
+    border: 2px solid black;
+    width: 180px;
+    height: 120px;
+}
+
+.ListaDeProdutos {
+    /*
+    background-color:white;
+    */
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px 200px 200px;
+}
