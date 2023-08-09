@@ -9,9 +9,11 @@
         <tr>
             <th scope="col">Name</th>
             <th scope="col">Price</th>
-            <th scope="col">Details</th>
-            <th scope="col">Edit</th>
-            <th scope="col">Delete</th>
+            <th scope="col"></th>
+            <th scope="col">Options</th>
+            <th scope="col"></th>
+            
+            
 
         </tr>
     </thead>
@@ -21,9 +23,18 @@
             <tr>
                 <td>@prod.Name</td>
                 <td>@prod.Price</td>
-                <td><a href="Admin/MainPage/Details/@prod.Id">Detalhes</a></td>
-                <td><a href="Admin/MainPage/Edit/@prod.Id">Editar</a></td>
-                <td><a href="Admin/MainPage/Delete/@prod.Id">Deletar</a></td>
+                <td>
+                        <button class="btn btn-primary"> <a class="text-white" href="Admin/MainPage/Details/@prod.Id"> Detalhes </a> </button>
+                </td>
+
+                <td>
+                    <button class="btn btn-primary"><a class="text-white" href="Admin/MainPage/Edit/@prod.Id"> Editar </a> </button>
+                </td>
+                
+                <td>
+                        <button class="btn btn-danger"><a class="text-white" href="Admin/MainPage/Delete/@prod.Id"> Deletar </a> </button>    
+                </td>
+                
             </tr>
 
 

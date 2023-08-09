@@ -1,47 +1,58 @@
 ﻿@using Models;
 @model Produto
 
-<<a asp-action="Index">voltar para o menu principal</a>
-<br>
-<br>
 
-<h1>Criando um Produto</h1>
+<head>
 
-<form method="post">
+</head>
 
-	<div class="row">
-		<label asp-for="Name" class="p-0">Name</label>
-		<input asp-for="Name" class="form-control">
-		<span asp-validation-for="Name" class="text-danger"></span>
-	</div>
-	<br>
 
-	<div class="row">
-		<label asp-for="Descricao" class="p-0">Descrição</label>
-		<input asp-for="Descricao" class="form-control">
-		<span asp-validation-for="Descricao" class="text-danger"></span>
-	</div>
-	<br>
 
-	<div class="row">
-		<label asp-for="Price" class="p-0">Price</label>
-		<input asp-for="Price" class="form-control">
-		<span asp-validation-for="Price" class="text-danger"></span>
-	</div>
-	<br>
+<body>
 
-	<div class="row">
-		<label asp-for="CategoriaId" class="p-0">CategoriaId</label>
-		<input asp-for="CategoriaId" class="form-control">
-		<span asp-validation-for="CategoriaId" class="text-danger"></span>
-	</div>
+	<button class="btn btn-primary "> <a class="text-white" asp-action="Index">voltar para o menu principal</a> </button>
 
 	<br>
 	<br>
 
-	<button class="btn btn-primary" asp-area="Admin" asp-controller="MainPage" asp-action="Insert">Adicionar</button>
+	<h1>Criando um Produto</h1>
 
-</form>
+	<form method="post">
 
-<br>
-<br>
+		<div class="row">
+			<label asp-for="Name" class="p-0">Name</label>
+			<input asp-for="Name" class="form-control">
+			<span asp-validation-for="Name" class="text-danger"></span>
+		</div>
+		<br>
+
+		<div class="row">
+			<label asp-for="Descricao" class="p-0">Descrição</label>
+			<input asp-for="Descricao" class="form-control">
+			<span asp-validation-for="Descricao" class="text-danger"></span>
+		</div>
+		<br>
+
+		<div class="row">
+			<label asp-for="Price" class="p-0">Price</label>
+			<input asp-for="Price" class="form-control">
+			<span asp-validation-for="Price" class="text-danger"></span>
+		</div>
+		<br>
+
+		<div class="row">
+			<label asp-for="CategoriaId" class="p-0">CategoriaId</label>
+			<input asp-for="CategoriaId" class="form-control">
+			<span asp-validation-for="CategoriaId" class="text-danger"></span>
+		</div>
+
+		<br>
+		<br>
+
+		<button class="btn btn-primary" asp-area="Admin" asp-controller="MainPage" asp-action="Insert">Adicionar</button>
+
+	</form>
+
+	<br>
+	<br>
+</body>
