@@ -53,7 +53,16 @@ namespace EcommerceWeb.Areas.Admin.Controllers
         #region Details
         public IActionResult Details(int id)
         {
+            string? categoria;
             Produto produto = _db.Produto.GetById(c => c.Id == id);
+            
+            
+            if(produto.CategoriaId == null) 
+                categoria = "N/A";
+            else
+                categoria = _db.Category.GetById(c => c.Id == produto.CategoriaId).Name;
+
+            ViewData["categoria"] = categoria;
             return View(produto);
         }
         #endregion
@@ -61,7 +70,15 @@ namespace EcommerceWeb.Areas.Admin.Controllers
         #region Edit
         public IActionResult Edit(int id)
         {
+            string? categoria;
             var produto = _db.Produto.GetById(c => c.Id == id);
+
+            if (produto.CategoriaId == null)
+                categoria = "N/A";
+            else
+                categoria = _db.Category.GetById(c => c.Id == produto.CategoriaId).Name;
+
+            ViewData["categoria"] = categoria;
             return View(produto);
         }
 

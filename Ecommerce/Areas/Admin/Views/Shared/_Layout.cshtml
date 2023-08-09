@@ -6,14 +6,19 @@
     <title>@ViewData["Title"] - Ecommerce</title>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/BootstrapTheme.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="~/Ecommerce.styles.css" asp-append-version="true" />
+
+
+
+    <!-- Option 1: Include in HTML -->
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-black text-white border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand text-light" asp-area="Admin" asp-controller="MainPage" asp-action="Index">Página principal</a>
-                <button id="NightOrDay" class="btn btn-danger">night mode</button>
+                <button id="NightOrDay" class="btn btn-dark"><i class="bi bi-moon-stars"></i></button>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

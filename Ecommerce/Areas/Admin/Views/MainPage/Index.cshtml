@@ -1,44 +1,53 @@
 ﻿@using Models;
 @model List<Produto>
 
-<a class="text-white" asp-action="Insert"> <button class="btn btn-primary ">Adicionar um produto </button></a>
-<br>
-<br>
 <head>
     <link rel="stylesheet" href="~/css/Admin/MainPage/Index.css" />
 </head>
 
+<br>
 
-<body>
 
-    <br>
-    <br>
-    <section>
-        <div class="container ListaDeProdutos">
-            @foreach (var prod in Model)
-            {
-                <a href="Admin/MainPage/Details/@prod.Id">
-                    <div class="produto row p-2">
-                        <div class="imagem col-6"></div>
-                        <br>
-                        <div class="col-6">
-                            <div class="row">
-                                <p>@prod.Name</p>
-                            </div>
 
-                            <div class="row ">
-                                <p>R$ @prod.Price</p>
+<body>@*
+    <div class="container">
+    *@
+
+        <a class="text-white" asp-action="Insert"> <button class="btn btn-primary ">Adicionar um produto </button></a>
+        <br>
+        <br>
+
+        <section>
+        
+            <br>
+            <br>
+            <div class="container ListaDeProdutos">
+                @foreach (var prod in Model)
+                {
+                    <a href="Admin/MainPage/Details/@prod.Id">
+                        <div class="produto row p-2">
+                            <div class="imagem col-6"></div>
+                            <br>
+                            <div class="col-6">
+                                <div class="row">
+                                    <p>@prod.Name</p>
+                                </div>
+
+                                <div class="row ">
+                                    <p>R$ @prod.Price</p>
+                                </div>
+
                             </div>
 
                         </div>
+                    </a>
+                }
+            </div>
+        </section>
+    @*
 
-                    </div>
-                </a>
-            }
-        </div>
-    </section>
-
-
+        x</div>
+    *@
 
 
 </body>

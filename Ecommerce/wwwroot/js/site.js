@@ -1,5 +1,5 @@
 ﻿const nightButton = document.getElementById('NightOrDay');
-const body = document.body;
+const body = document.body
 var noite = false;
 
 

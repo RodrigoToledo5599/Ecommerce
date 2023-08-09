@@ -44,23 +44,12 @@
             </tr>
         }
         
-
-        @if (Model.CategoriaId == null)
-        {
-            <tr>
-                <td>Categoria:</td>
-                <td></td>
-                <td>N/A</td>
-            </tr>
-        }
-        else
-        {
-            <tr>
-                <td>Categoria:</td>
-                <td></td>
-                <td>@Model.CategoriaId</td>
-            </tr>
-        }
+        <tr>
+            <td>Categoria:</td>
+            <td></td>
+            <td>@ViewData["categoria"]</td>
+        </tr>
+        
        
 
        

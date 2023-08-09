@@ -48,12 +48,3 @@ button.accept-policy {
 }
 
 
-
-body {
-    transition: background-color 0.5s, color 0.5s;
-}
-
-.night-mode {
-    background-color: #1861ac;
-    color: #fff;
-}

@@ -16,12 +16,21 @@ namespace Models
         public string? Descricao { get; set; }
 
         public float Price { get; set; }
+        public string? ImagemPrincipal { get; set; }
+        public string? Imagem1 { get; set; }
+        public string? Imagem2 { get; set; }
+        public string? Imagem3 { get; set; }
+        public string? Imagem4 { get; set; }
         
-        public int? CategoriaId { get;}
+
+
+
+
+
+        public int? CategoriaId { get; set; }
         [ForeignKey("CategoriaId")]
         public Category? Categoria { get; set; }
         
-
 
     }
 }
