@@ -9,6 +9,12 @@ namespace Data
 
         public DbSet<Produto> Produto { get; set; }
         public DbSet<Category> Category { get; set; }
+        public DbSet<Role> Role { get; set; }
+        public DbSet<Account> Account  { get; set; }
+
+        
+
+
 
 
 
@@ -42,6 +48,16 @@ namespace Data
                 new Category { Id = 11, Name= "Mouse"},
                 new Category { Id = 12, Name= "SSD"},
                 new Category { Id = 13, Name= "HD"}
+                );
+
+
+
+            modelBuilder.Entity<Role>().HasData(
+                new Role { Id = 1, Name = "Admin" },
+                new Role { Id = 2, Name = "Cliente" }
+                
+                
+                
                 );
         }
     }
