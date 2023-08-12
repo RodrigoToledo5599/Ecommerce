@@ -14,12 +14,14 @@ namespace Data.Unit
         public IProdutoRepository Produto { get; private set; }
         public ICategoryRepository Category { get; private set; }
 
+        public IAccountRepository Account { get; private set; }
+
         public UnitOfWork(AppDbContext db)
         {
             _db = db;
             Produto = new ProdutoRepository(_db);
             Category = new CategoryRepository(_db);
-
+            Account = new AccountRepository(_db);
         }
 
     }

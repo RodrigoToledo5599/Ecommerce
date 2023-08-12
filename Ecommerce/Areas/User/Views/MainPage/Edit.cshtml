@@ -1,0 +1,58 @@
+﻿@using Models;
+@model Produto
+
+<br>
+<br>
+
+<h1>Editando o Produto</h1>
+
+<form method="post">
+	
+
+	<div class="row">
+	<label asp-for="Id" class="p-0">Id</label>
+	<input asp-for="Id" class="form-control">
+	<span asp-validation-for="Id" class="text-danger"></span>
+	</div>
+	<br>
+	
+
+	<div class="row">
+		<label asp-for="Name" class="p-0">Name</label>
+		<input asp-for="Name" class="form-control">
+		<span asp-validation-for="Name" class="text-danger"></span>
+	</div>
+	<br>
+
+	<div class="row">
+		<label asp-for="Descricao" class="p-0">Descrição</label>
+		<input asp-for="Descricao" class="form-control">
+		<span asp-validation-for="Descricao" class="text-danger"></span>
+	</div>
+	<br>
+
+	<div class="row">
+		<label asp-for="Price" class="p-0">Price</label>
+		<input asp-for="Price" class="form-control">
+		<span asp-validation-for="Price" class="text-danger"></span>
+	</div>
+	<br>
+
+	<div class="row">
+		<label asp-for="CategoriaId" class="p-0">CategoriaId</label>
+		<input asp-for="CategoriaId" class="form-control">
+		<span asp-validation-for="CategoriaId" class="text-danger"></span>
+	</div>
+	<br>
+
+	
+	<br>
+
+	<br>
+	<br>
+
+	<button class="btn btn-primary" asp-area="Admin" asp-controller="MainPage" asp-action="Edit">Salvar Alterações</button>
+
+
+
+</form>

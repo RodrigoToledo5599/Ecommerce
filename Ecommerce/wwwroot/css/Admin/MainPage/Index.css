@@ -3,11 +3,11 @@
 }
 
 ﻿.produto {
+
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-around;
-    background-color: darkgray;
     border: 1px solid aqua;
     width: 160px;
     height: 350px;
@@ -39,14 +39,9 @@
 
 
 .ListaDeProdutos {
+    background-color: white;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
     
-    background-color:white;
-    display: flex;
-    flex-direction: row;
-    
-    /*
-    grid-row-end;
-
-    grid-template-columns: 250px 250px 250px 250px 250px 250px;*/
 }
 

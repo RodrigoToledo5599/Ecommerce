@@ -13,6 +13,7 @@ namespace Models
         [Key]
         public int Id { get; set; }
         [StringLength(63)]
+        [Required]
         public string Name { get; set; }
 
         [Required]
@@ -30,11 +31,9 @@ namespace Models
 
 
 
-        [Required]
-        public int RoleId { get; set; }
-
+        public int? RoleId { get; set; }
         [ForeignKey("RoleId")]
-        public Role Role { get; set; }
+        public Role? Role { get; set; }
 
     }
 }

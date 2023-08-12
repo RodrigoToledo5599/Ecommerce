@@ -6,6 +6,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="SqlScripts\SetDefaultRole.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="SqlScripts\SetDefaultRole.txt" />
+  </ItemGroup>
+
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.9" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.9" />

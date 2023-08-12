@@ -1,0 +1,22 @@
+﻿
+/*
+USE [E-commerce]
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TRIGGER [dbo].[SetDefaultRole] ON [dbo].[Account]
+AFTER INSERT 
+AS
+BEGIN
+	UPDATE Account
+	SET RoleId = 1
+	WHERE RoleId is NULL;
+	PRINT 'Default values updated';
+
+END;
+*/
+
