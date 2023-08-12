@@ -1,4 +1,4 @@
-﻿using Data;
+﻿ using Data;
 using Data.Unit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -44,8 +44,17 @@ namespace EcommerceWeb.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Insert(Produto produto)
         {
-            _db.Produto.Insert(produto);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _db.Produto.Insert(produto);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                
+                return View();
+            }
+
         }
 
         #endregion
@@ -72,7 +81,6 @@ namespace EcommerceWeb.Areas.Admin.Controllers
         {
             string? categoria;
             var produto = _db.Produto.GetById(c => c.Id == id);
-
             if (produto.CategoriaId == null)
                 categoria = "N/A";
             else
@@ -85,8 +93,12 @@ namespace EcommerceWeb.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Edit(Produto produto)
         {
-            _db.Produto.Edit(produto);
+            if (ModelState.IsValid)
+            {
+                _db.Produto.Edit(produto);
+            }
             return View(produto);
+            
         }
 
         #endregion

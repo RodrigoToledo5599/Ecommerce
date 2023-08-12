@@ -1,6 +1,9 @@
 ﻿@using Models;
 @model List<Produto>
 
+@{
+    int countLine = 0;
+}
 <head>
     <link rel="stylesheet" href="~/css/Admin/MainPage/Index.css" />
 </head>
@@ -9,45 +12,44 @@
 
 
 
-<body>@*
-    <div class="container">
-    *@
+<body>
+    
 
-        <a class="text-white" asp-action="Insert"> <button class="btn btn-primary ">Adicionar um produto </button></a>
-        <br>
-        <br>
+    <a class="text-white" asp-action="Insert"> <button class="btn btn-primary ">Adicionar um produto </button></a>
+    <br>
+    <br>
 
-        <section>
-        
-            <br>
-            <br>
-            <div class="container ListaDeProdutos">
-                @foreach (var prod in Model)
-                {
-                    <a href="Admin/MainPage/Details/@prod.Id">
-                        <div class="produto row p-2">
-                            <div class="imagem col-6"></div>
-                            <br>
-                            <div class="col-6">
-                                <div class="row">
-                                    <p>@prod.Name</p>
-                                </div>
 
-                                <div class="row ">
-                                    <p>R$ @prod.Price</p>
-                                </div>
 
-                            </div>
-
+    <br>
+    <br>
+    <div class="grid-container ListaDeProdutos">
+        @foreach (var prod in Model)
+        {
+            <div class="produto p-2 ">
+                <a href="Admin/MainPage/Details/@prod.Id">
+                    <div class="imagem col-6"></div>
+                    <br>
+                    <div class="col-6">
+                        <div class="row">
+                            <p>@prod.Name</p>
                         </div>
-                    </a>
-                }
-            </div>
-        </section>
-    @*
 
-        x</div>
-    *@
+                        <div class="row ">
+                            <p>R$ @prod.Price</p>
+                        </div>
+
+                    </div>
+
+                </a>
+            </div>
+            <div>
+               
+            </div>
+        }
+    </div>
+        
+    
 
 
 </body>
