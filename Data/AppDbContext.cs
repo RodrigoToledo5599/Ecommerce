@@ -56,10 +56,14 @@ namespace Data
                 new Role { Id = 1, Name = "Admin" },
                 new Role { Id = 2, Name = "Cliente" },
                 new Role { Id = 3, Name = "Vendedor" }
+                );
 
-                
-                
-                
+
+            modelBuilder.Entity<Account>().HasData(
+                new Account { Id= 1, Name ="123" ,Email= "123@gmail.com", Senha="123"}
+
+
+
                 );
         }
     }

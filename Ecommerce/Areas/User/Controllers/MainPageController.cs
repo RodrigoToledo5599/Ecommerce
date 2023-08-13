@@ -21,14 +21,6 @@ namespace EcommerceWeb.Areas.User.Controllers
         public IActionResult Index()
         {
             var produtos = _db.Produto.GetAll();
-            /*IEnumerable<SelectListItem> ListaDeCategoria = _db.Category.GetAll().Select(u => new SelectListItem
-            {
-                Text = u.Name,
-                Value = u.Id.ToString(),
-            });
-            
-            ViewBag.ListaDeCategoria = ListaDeCategoria;
-            */
             return View(produtos);
         }
 

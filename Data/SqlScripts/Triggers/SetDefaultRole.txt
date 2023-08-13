@@ -1,5 +1,5 @@
-﻿
-/*
+﻿/*
+
 USE [E-commerce]
 GO
 
@@ -13,10 +13,14 @@ AFTER INSERT
 AS
 BEGIN
 	UPDATE Account
-	SET RoleId = 1
+	SET RoleId = 2
 	WHERE RoleId is NULL;
 	PRINT 'Default values updated';
 
 END;
+
+
+
+
 */
 
