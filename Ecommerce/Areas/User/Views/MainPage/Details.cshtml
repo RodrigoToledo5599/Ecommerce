@@ -45,12 +45,12 @@
             </tr>
         }
         
-        @if (Model.produto.CategoriaId is null)
+        @if (Model.produto.CategoriaId is not null && Model.category is not null)
         {
             <tr>
                 <td>Categoria:</td>
                 <td></td>
-                <td>N/A</td>
+                <td>@Model.category.Name</td>
             </tr>
         }
         else
@@ -58,7 +58,7 @@
             <tr>
                 <td>Categoria:</td>
                 <td></td>
-                <td>@Model.category.Name</td>
+                <td>N/A</td>
             </tr>
         }
         
