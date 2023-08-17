@@ -3,6 +3,7 @@ using Data.Unit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Models;
+using Models.ViewModels;
 
 namespace EcommerceWeb.Areas.User.Controllers
 {
@@ -54,17 +55,12 @@ namespace EcommerceWeb.Areas.User.Controllers
         #region Details
         public IActionResult Details(int id)
         {
-            string? categoria;
-            Produto produto = _db.Produto.GetById(c => c.Id == id);
-            
-            
-            if(produto.CategoriaId == null) 
-                categoria = "N/A";
-            else
-                categoria = _db.Category.GetById(c => c.Id == produto.CategoriaId).Name;
 
-            ViewData["categoria"] = categoria;
-            return View(produto);
+            ProdutoVM produtoVm = new ProdutoVM
+            { produto = _db.Produto.GetById(c => c.Id == id)  };
+            produtoVm.category = _db.Category.GetById(c => c.Id == produtoVm.produto.CategoriaId);
+            
+            return View(produtoVm);
         }
         #endregion
 

@@ -1,5 +1,6 @@
 ﻿@using Models;
-@model Produto
+@using Models.ViewModels;
+@model ProdutoVM;
 
 @{
 
@@ -12,22 +13,22 @@
         <tr>
             <td>Id:</td>
             <td></td>
-            <td>@Model.Id</td>
+            <td>@Model.produto.Id</td>
         </tr>
 
         <tr>
             <td>Name:</td>
             <td></td>
-            <td>@Model.Name</td>
+            <td>@Model.produto.Name</td>
         </tr>
 
         <tr>
             <td>Price:</td>
             <td></td>
-            <td>@Model.Price</td>
+            <td>@Model.produto.Price</td>
         </tr>
 
-        @if (string.IsNullOrEmpty(Model.Descricao))
+        @if (string.IsNullOrEmpty(Model.produto.Descricao))
         {
             <tr>
                 <td>Descrição:</td>
@@ -40,15 +41,26 @@
             <tr>
                 <td>Descrição:</td>
                 <td></td>
-                <td>@Model.Descricao</td>
+                <td>@Model.produto.Descricao</td>
             </tr>
         }
         
-        <tr>
-            <td>Categoria:</td>
-            <td></td>
-            <td>@ViewData["categoria"]</td>
-        </tr>
+        @if (Model.produto.CategoriaId is null)
+        {
+            <tr>
+                <td>Categoria:</td>
+                <td></td>
+                <td>N/A</td>
+            </tr>
+        }
+        else
+        {
+            <tr>
+                <td>Categoria:</td>
+                <td></td>
+                <td>@Model.category.Name</td>
+            </tr>
+        }
         
        
 

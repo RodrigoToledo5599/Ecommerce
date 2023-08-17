@@ -38,8 +38,9 @@ namespace Ecommerce
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{area=User}/{controller=Auth}/{action=Login}/{id?}");   
-                //pattern: "{area=User}/{controller=MainPage}/{action=Index}/{id?}");
+                //pattern: "{area=User}/{controller=Auth}/{action=Login}/{id?}");
+                //pattern: "{area=Admin}/{controller=MainPage}/{action=Index}/{id?}");   
+                pattern: "{area=User}/{controller=MainPage}/{action=Index}/{id?}") ;
                 
 
 

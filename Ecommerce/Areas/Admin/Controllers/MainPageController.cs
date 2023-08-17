@@ -6,7 +6,7 @@ using Models;
 
 namespace EcommerceWeb.Areas.Admin.Controllers
 {
-    //[Area("Admin")]
+    [Area("Admin")]
     //[BindProperties]
     public class MainPageController : Controller
     {
