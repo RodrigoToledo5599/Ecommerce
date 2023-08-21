@@ -1,9 +1,7 @@
 ﻿@using Models;
 @model List<Produto>
 
-@{
-    int countLine = 0;
-}
+
 <head>
     <link rel="stylesheet" href="~/css/Admin/MainPage/Index.css" />
 </head>
@@ -11,43 +9,49 @@
 <br>
 
 
+<div class=" d-flex justify-content-">
 
-<body>
-    
+    <div class="Side-menu">
 
-    <a class="text-white" asp-action="Insert"> <button class="btn btn-primary ">Adicionar um produto </button></a>
-    <br>
-    <br>
-
-
-
-    <br>
-    <br>
-    <div class="container ListaDeProdutos p-4"> 
-        @foreach (var prod in Model)
-        {
-            <div class="produto p-2 ">
-                <a href="/User/MainPage/Details/@prod.Id">
-                    <div class="imagem col-6"></div>
-                    <br>
-                    <div class="col-6">
-                        <div class="row">
-                            <p>@prod.Name</p>
-                        </div>
-
-                        <div class="row ">
-                            <p>R$ @prod.Price</p>
-                        </div>
-
-                    </div>
-
-                </a>
-            </div>
-
-        }
+        <partial name="~/Views/Shared/_SideMenu.cshtml" />
     </div>
-        
-    
+    <div class="">
+
+    </div>
+
+    <div class="Page-content">
+
+        <a class="text-white" asp-action="Insert"> <button class="btn btn-primary ">Adicionar um produto </button></a>
+        <br>
+        <br>
 
 
-</body>
+
+        <div class="container ListaDeProdutos p-4"> 
+            @foreach (var prod in Model)
+            {
+                <div class="produto p-2 ">
+                    <a href="/User/MainPage/Details/@prod.Id">
+                        <div class="imagem col-6"></div>
+                        <br>
+                        <div class="col-6">
+                            <div class="row">
+                                <p>@prod.Name</p>
+                            </div>
+
+                            <div class="row ">
+                                <p>R$ @prod.Price</p>
+                            </div>
+
+                        </div>
+
+                    </a>
+                </div>
+            }
+
+        </div>
+
+    </div>
+
+
+</div>

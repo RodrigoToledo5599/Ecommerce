@@ -12,7 +12,7 @@ namespace EcommerceWeb.Areas.User.Controllers
     public class MainPageController : Controller
     {
         public IUnitOfWork _db { get; set; }
-        public MainPageController (IUnitOfWork db)
+        public MainPageController (IUnitOfWork db) 
         {
             _db = db;
         }

@@ -20,7 +20,7 @@ BEGIN
 END;
 
 
-
+-- Este script serve para deixar o usuario como cliente quando ele é criado--
 
 */
 
