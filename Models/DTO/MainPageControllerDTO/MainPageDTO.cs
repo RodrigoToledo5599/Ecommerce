@@ -5,14 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Models.DTO
+namespace Models.DTO.MainPageControllerDTO
 {
-    public class MainPageDTO
+    public class MainPageDTO : AccountDTO
     {
-        public Account? conta { get; set; }
-        [Required]
+        
         public IEnumerable<Produto>? produto { get; set; }
-        public IEnumerable<Category>? category { get; set; }
+        
 
     }
 }

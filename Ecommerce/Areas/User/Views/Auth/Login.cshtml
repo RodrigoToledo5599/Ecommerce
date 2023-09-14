@@ -7,34 +7,38 @@
 
 <head>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/BootstrapTheme.css" />
-    
+    <link rel="stylesheet" href="~/css/Auth/Login.css" />
+    @**@
+
 </head>
 
 
 <body class="p-5 bg-dark text-white align-content-center">
-	<div class="container" style="width:50%">
 
-		<form method="post">
+		<form class="fomulario" method="post">
+			<div class="container" style="width:50%">
 
-			<div class="row">
-				<label asp-for="Email" class="p-0">Email</label>
+				<div class="row">
+					<label asp-for="Email" class="p-0">Email</label>
+					<br>
+					<input asp-for="Email" class="form-control">
+					<span asp-validation-for="Email" class="text-danger"></span>
+				</div>
 				<br>
-				<input asp-for="Email" class="form-control">
-				<span asp-validation-for="Email" class="text-danger"></span>
-			</div>
-			<br>
 
-			<div class="row">
+				<div class="row">
+					<br>
+					<label asp-for="Senha" class="p-0">Senha</label>
+					<input asp-for="Senha" class="form-control">
+					<span asp-validation-for="Senha" class="text-danger"></span>
+				</div>
 				<br>
-				<label asp-for="Senha" class="p-0">Senha</label>
-				<input asp-for="Senha" class="form-control">
-				<span asp-validation-for="Senha" class="text-danger"></span>
-			</div>
-			<br>
 		
-			<button class="btn btn-primary" asp-controller="Auth" asp-action="Login">Logar</button>
-			<button class="btn btn-primary" asp-area="User" asp-controller="MainPage" asp-action="Index">Entrar sem logar</button>
+				<button class="btn btn-primary" asp-controller="Auth" asp-action="Login">Logar</button>
+					<br><br>
+				<button class="btn btn-primary" asp-area="User" asp-controller="MainPage" asp-action="Index">Entrar sem logar</button>
+			
+			</div>
 		</form>
-	</div>
 
 </body>

@@ -3,7 +3,7 @@ using Data.Unit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Models;
-using Models.DTO;
+using Models.DTO.MainPageControllerDTO;
 
 namespace EcommerceWeb.Areas.User.Controllers
 {
