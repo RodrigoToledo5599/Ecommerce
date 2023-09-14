@@ -3,7 +3,7 @@ using Data.Unit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Models;
-using Models.ViewModels;
+using Models.DTO;
 
 namespace EcommerceWeb.Areas.User.Controllers
 {
@@ -56,7 +56,7 @@ namespace EcommerceWeb.Areas.User.Controllers
         public IActionResult Details(int id)
         {
 
-            ProdutoVM produtoVm = new ProdutoVM
+            ProdutoDTO produtoVm = new ProdutoDTO
             { produto = _db.Produto.GetById(c => c.Id == id)  };
             produtoVm.category = _db.Category.GetById(c => c.Id == produtoVm.produto.CategoriaId);
             

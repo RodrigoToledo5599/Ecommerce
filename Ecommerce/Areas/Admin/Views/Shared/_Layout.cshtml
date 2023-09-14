@@ -26,18 +26,21 @@
                     <ul class="navbar-nav flex-grow-1">
                         @*
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="MainPage" asp-action="Index">Home</a>
+                        <a class="nav-link text-dark" asp-area="Admin" asp-controller="MainPage" asp-action="Index">Home</a>
                         </li>
                         *@
-                        
+
                     </ul>
                 </div>
-                <a>
-                    <i class="bi bi-person-circle text-white"></i>
-                </a>
-                <button id="NightOrDay" class="btn btn-dark"><i class="bi bi-moon-stars"></i></button>
+                <button class="btn">
+                    <a class="text-lg-center">
+                        <i class="bi bi-person-circle text-white"></i>
+                    </a>
+                </button>
+
+                <button id="NightOrDay" class="btn btn-dark text-lg"><i class="bi bi-moon-stars"></i></button>
             </div>
-            
+
         </nav>
     </header>
     <div class="container">
@@ -46,12 +49,12 @@
         </main>
     </div>
 
-    
+
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

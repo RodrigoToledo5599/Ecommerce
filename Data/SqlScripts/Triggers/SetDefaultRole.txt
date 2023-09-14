@@ -13,8 +13,8 @@ AFTER INSERT
 AS
 BEGIN
 	UPDATE Account
-	SET RoleId = 2
-	WHERE RoleId is NULL;
+	SET Role = 2
+	WHERE Role is NULL;
 	PRINT 'Default values updated';
 
 END;

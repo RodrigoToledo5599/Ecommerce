@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Models.ViewModels
+namespace Models.DTO
 {
-    public class ProdutoVM
+    public class ProdutoDTO
     {
         [Required]
         public Produto produto { get; set; }

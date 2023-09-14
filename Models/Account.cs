@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Models.Enums;
 
 namespace Models
 {
@@ -24,6 +25,8 @@ namespace Models
         [StringLength(127)]
         public string Senha { get; set; }
 
+        public Roles Role { get; set; }
+
         
 
 
@@ -31,9 +34,7 @@ namespace Models
 
 
 
-        public int? RoleId { get; set; }
-        [ForeignKey("RoleId")]
-        public Role? Role { get; set; }
+
 
     }
 }
