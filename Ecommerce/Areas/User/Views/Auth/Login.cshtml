@@ -19,19 +19,20 @@
 			<div class="container" style="width:50%">
 
 				<div class="row">
-					<label asp-for="Email" class="p-0">Email</label>
+					<label asp-for="Email" class="p-0"><strong>Email</strong></label>
 					<br>
-					<input asp-for="Email" class="form-control">
+					<input asp-for="Email" class="form-control" placeholder="seuEmail@gmail.com">
 					<span asp-validation-for="Email" class="text-danger"></span>
 				</div>
 				<br>
 
 				<div class="row">
 					<br>
-					<label asp-for="Senha" class="p-0">Senha</label>
-					<input asp-for="Senha" class="form-control">
+					<label asp-for="Senha" class="p-0"><strong>Senha</strong></label>
+					<input asp-for="Senha" class="form-control" placeholder="Senha">
 					<span asp-validation-for="Senha" class="text-danger"></span>
 				</div>
+				<br>
 				<br>
 		
 				<button class="btn btn-primary" asp-controller="Auth" asp-action="Login">Logar</button>
