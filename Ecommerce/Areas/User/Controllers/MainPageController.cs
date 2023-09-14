@@ -19,10 +19,22 @@ namespace EcommerceWeb.Areas.User.Controllers
 
 
         #region Index
-        public IActionResult Index()
+        public IActionResult Index(string? id)
         {
-            var produtos = _db.Produto.GetAll();
-            return View(produtos);
+            var FinalModel = new MainPageDTO();
+            if(id == null)
+            {
+                FinalModel.conta = null;
+            }
+            else
+            {
+                FinalModel.conta = _db.Account.GetById(c => c.Id == int.Parse(id));
+            }
+
+            FinalModel.produto = _db.Produto.GetAll();
+
+
+            return View(FinalModel);
         }
 
         #endregion
@@ -53,7 +65,7 @@ namespace EcommerceWeb.Areas.User.Controllers
         #endregion
 
         #region Details
-        public IActionResult Details(int id)
+        /* public IActionResult Details(int id)
         {
 
             ProdutoDTO produtoVm = new ProdutoDTO
@@ -61,7 +73,7 @@ namespace EcommerceWeb.Areas.User.Controllers
             produtoVm.category = _db.Category.GetById(c => c.Id == produtoVm.produto.CategoriaId);
             
             return View(produtoVm);
-        }
+        }*/
         #endregion
 
         #region Edit

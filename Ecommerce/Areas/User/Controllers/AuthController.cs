@@ -1,4 +1,5 @@
 ﻿using Data.Unit;
+using EcommerceWeb.Services;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 
@@ -21,12 +22,12 @@ namespace EcommerceWeb.Areas.User.Controllers
         [HttpPost]
         public IActionResult Login(string email, string senha)
         {
-            Account account = _db.Account.Logging(email, senha);
+            Account? account = new Autenticacao(_db).Autenticar(email, senha);
 
             if (account == null)
                 return NotFound();
             else
-                return Redirect("User/MainPage/Index");
+                return Redirect($"User/MainPage/Index/{account.Id}");
 
 
         }

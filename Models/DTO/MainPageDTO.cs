@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace Models.DTO
 {
-    public class ProdutoDTO
+    public class MainPageDTO
     {
+        public Account? conta { get; set; }
         [Required]
-        public Produto produto { get; set; }
-        public Category? category { get; set; }
+        public IEnumerable<Produto>? produto { get; set; }
+        public IEnumerable<Category>? category { get; set; }
 
     }
 }

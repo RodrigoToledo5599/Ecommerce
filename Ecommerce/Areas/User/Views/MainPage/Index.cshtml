@@ -1,5 +1,6 @@
 ﻿@using Models;
-@model List<Produto>
+@using Models.DTO;
+@model MainPageDTO
 
 
 <head>
@@ -21,11 +22,17 @@
         <a class="text-white" asp-action="Insert"> <button class="btn btn-primary ">Adicionar um produto </button></a>
         <br>
         <br>
-
-
+        @if(Model.conta is null)
+        {
+            <h1>nada aq nao chefia</h1>
+        }
+        else
+        {
+            <h1>@Model.conta.Name</h1>
+        }
 
         <div class="container ListaDeProdutos p-4"> 
-            @foreach (var prod in Model)
+            @foreach (var prod in Model.produto)
             {
                 <div class="produto p-2 ">
                     <a href="/User/MainPage/Details/@prod.Id">
