@@ -3,6 +3,7 @@ using Data.Unit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Models;
+using Models.DTO;
 using Models.DTO.MainPageControllerDTO;
 
 namespace EcommerceWeb.Areas.User.Controllers
@@ -42,7 +43,15 @@ namespace EcommerceWeb.Areas.User.Controllers
         #region Insert
 
         public IActionResult Insert()
-        {
+        {   
+
+            IEnumerable<SelectListItem> categories = _db.Category.GetAll().Select(u => new SelectListItem
+            {
+                Text = u.Name,
+                Value = u.Id.ToString(),
+            });
+            ViewBag.Categories = categories;
+            
             return View();
         }
 
