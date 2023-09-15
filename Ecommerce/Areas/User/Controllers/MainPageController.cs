@@ -1,4 +1,5 @@
-﻿using Data;
+﻿using System.Globalization;
+using Data;
 using Data.Unit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -42,33 +43,28 @@ namespace EcommerceWeb.Areas.User.Controllers
 
         #region Insert
 
-        public IActionResult Insert()
+        
+        public IActionResult Insert(string id)
         {   
 
+            InsertDTO insertdto = new InsertDTO();
+            insertdto.conta = _db.Account.GetById(c => c.Id == int.Parse(id));
             IEnumerable<SelectListItem> categories = _db.Category.GetAll().Select(u => new SelectListItem
             {
                 Text = u.Name,
                 Value = u.Id.ToString(),
             });
             ViewBag.Categories = categories;
-            
-            return View();
+
+            return View(insertdto);
+
         }
 
         [HttpPost]
         public IActionResult Insert(Produto produto)
         {
-            if (ModelState.IsValid)
-            {
-                _db.Produto.Insert(produto);
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                
-                return View();
-            }
-
+            _db.Produto.Insert(produto);
+            return View();
         }
 
         #endregion

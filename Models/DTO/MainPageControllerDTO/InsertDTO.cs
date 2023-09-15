@@ -9,7 +9,8 @@ namespace Models.DTO.MainPageControllerDTO
 	public class InsertDTO : AccountDTO
 	{
 
-		public Produto produto;
+		public Produto? produto;
+		
 		
 		
 	}

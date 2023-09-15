@@ -18,8 +18,13 @@
     </div>
 
     <div class="Page-content">
-
-        <a class="text-white" asp-action="Insert"> <button class="btn btn-primary ">Adicionar um produto </button></a>
+        @if (Model.conta is null){
+            <p>...</p>
+        }
+        else
+        {
+            <a class="text-white" asp-area="User" asp-controller="MainPage" asp-action="Insert" asp-route-id="@Model.produto.FirstOrDefault().Id"> <button class="btn btn-primary ">Adicionar um produto </button></a>
+        }
         <br>
         <br>
         @if(Model.conta is null)
