@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230812212437_fewChanges2")]
-    partial class fewChanges2
+    [Migration("20230914230912_apapldddasda")]
+    partial class apapldddasda
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,7 +43,7 @@ namespace Data.Migrations
                         .HasMaxLength(63)
                         .HasColumnType("nvarchar(63)");
 
-                    b.Property<int?>("RoleId")
+                    b.Property<int>("Role")
                         .HasColumnType("int");
 
                     b.Property<string>("Senha")
@@ -53,9 +53,17 @@ namespace Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RoleId");
+                    b.ToTable("Contas", (string)null);
 
-                    b.ToTable("Account");
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Email = "123@gmail.com",
+                            Name = "123",
+                            Role = 0,
+                            Senha = "123"
+                        });
                 });
 
             modelBuilder.Entity("Models.Category", b =>
@@ -237,50 +245,6 @@ namespace Data.Migrations
                             Name = "Smart Tv Sansung 50 polegadas UHD 4K",
                             Price = 2400f
                         });
-                });
-
-            modelBuilder.Entity("Models.Role", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(63)
-                        .HasColumnType("nvarchar(63)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Role");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Admin"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Cliente"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = ""
-                        });
-                });
-
-            modelBuilder.Entity("Models.Account", b =>
-                {
-                    b.HasOne("Models.Role", "Role")
-                        .WithMany()
-                        .HasForeignKey("RoleId");
-
-                    b.Navigation("Role");
                 });
 
             modelBuilder.Entity("Models.Produto", b =>

@@ -27,13 +27,8 @@ namespace Models
 
         public Roles Role { get; set; }
 
+
         
-
-
-
-
-
-
 
 
     }

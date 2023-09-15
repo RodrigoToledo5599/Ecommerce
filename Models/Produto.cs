@@ -17,10 +17,7 @@ namespace Models
 
         public float Price { get; set; }
         public string? ImagemPrincipal { get; set; }
-        public string? Imagem1 { get; set; }
-        public string? Imagem2 { get; set; }
-        public string? Imagem3 { get; set; }
-        public string? Imagem4 { get; set; }
+        
         
 
 
@@ -31,6 +28,8 @@ namespace Models
         [ForeignKey("CategoriaId")]
         public Category? Categoria { get; set; }
         
+
+        public ICollection<ImagensProdutos> ImagensProdutos { get; set; }
 
     }
 }
