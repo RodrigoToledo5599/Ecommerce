@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AutoMapper;
+using Models;
 
-namespace Models.Profiles
+namespace ModelsDTO.DTO
 {
-    public class Profiles : Profile
+    public class AccountDTO
     {
-        
+        public Account? conta { get; set; }
     }
 }

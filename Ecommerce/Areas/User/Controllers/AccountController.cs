@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿ using Microsoft.AspNetCore.Mvc;
 
 namespace EcommerceWeb.Areas.User.Controllers
 {
@@ -8,5 +8,12 @@ namespace EcommerceWeb.Areas.User.Controllers
 		{
 			return View();
 		}
+
+
+
+
+
+
+
 	}
 }

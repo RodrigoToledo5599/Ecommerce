@@ -1,21 +1,22 @@
 ﻿@using Models;
-@using Models.DTO.MainPageControllerDTO;
-@model MainPageDTO
+@using ModelsDTO.DTO.MainPageControllerDTO;
+@using Models.Enums;
+@model DetailsDTO
 
-@{
 
-}
 @*
-
+*@
 
 <table class="table table-dark d-flex flex-row">
     <tbody>
-        
-        <tr>
-            <td>Id:</td>
-            <td></td>
-            <td>@Model.produto.Id</td>
-        </tr>
+        @if (Model.conta.Role == Roles.Administrator)
+        {
+            <tr>
+                <td>Id:</td>
+                <td></td>
+                <td>@Model.produto.Id</td>
+            </tr>
+        }
 
         <tr>
             <td>Name:</td>
@@ -27,6 +28,12 @@
             <td>Price:</td>
             <td></td>
             <td>@Model.produto.Price</td>
+        </tr>
+
+        <tr>
+            <td>Categoria:</td>
+            <td></td>
+            <td>@Model.categoria</td>
         </tr>
 
         @if (string.IsNullOrEmpty(Model.produto.Descricao))
@@ -46,22 +53,20 @@
             </tr>
         }
         
-        @if (Model.produto.CategoriaId is not null && Model.category is not null)
+        @if(Model.conta.Role == Roles.Administrator)
         {
             <tr>
-                <td>Categoria:</td>
+                <td>Options:</td>
                 <td></td>
-                <td>@Model.category.Name</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@Model.produto.Id"><i class="bi bi-pencil text-white"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a asp-action="Delete" asp-route-id="@Model.produto.Id"><i class="bi bi-trash text-danger"></i></a>
+                </td>
             </tr>
         }
-        else
-        {
-            <tr>
-                <td>Categoria:</td>
-                <td></td>
-                <td>N/A</td>
-            </tr>
-        }
+
+        
         
        
 
@@ -74,7 +79,6 @@
 <br>
 
 
-*@
 
 
 

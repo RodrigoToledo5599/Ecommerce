@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Models;
+using Models.Enums;
 
 namespace Data
 {
@@ -63,7 +64,8 @@ namespace Data
 
 
             modelBuilder.Entity<Account>().HasData(
-                new Account { Id= 1, Name ="123" ,Email= "123@gmail.com", Senha="123"}
+                new Account { Id= 1, Name ="123" ,Email= "123@gmail.com", Senha="123"},
+                new Account { Id= 13, Name ="ADM" ,Email= "ADM@gmail.com", Senha="adm123",Role= Roles.Administrator}
 
 
 

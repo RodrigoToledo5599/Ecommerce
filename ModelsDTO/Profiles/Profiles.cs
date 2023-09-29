@@ -3,15 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 
-namespace Models.DTO.MainPageControllerDTO
+namespace ModelsDTO.Profiles
 {
-	public class InsertDTO : AccountDTO
-	{
+    public class Profiles : Profile
+    {
 
-		public Produto? produto;
-		
-		
-		
-	}
+    }
 }

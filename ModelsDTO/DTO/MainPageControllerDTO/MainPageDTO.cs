@@ -4,14 +4,13 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Models;
 
-namespace Models.DTO.MainPageControllerDTO
+namespace ModelsDTO.DTO.MainPageControllerDTO
 {
     public class MainPageDTO : AccountDTO
     {
-        
         public IEnumerable<Produto>? produto { get; set; }
-        
 
     }
 }

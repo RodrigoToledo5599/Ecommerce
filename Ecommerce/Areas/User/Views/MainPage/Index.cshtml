@@ -1,5 +1,6 @@
 ﻿@using Models;
-@using Models.DTO.MainPageControllerDTO;
+@using ModelsDTO.DTO.MainPageControllerDTO;
+@using Models.Enums
 @model MainPageDTO
 
 
@@ -20,21 +21,21 @@
     <div class="Page-content">
         @if (Model.conta is null){
             <p>...</p>
-        }
-        else
-        {
-            <a class="text-white" asp-area="User" asp-controller="MainPage" asp-action="Insert" asp-route-id="@Model.produto.FirstOrDefault().Id"> <button class="btn btn-primary ">Adicionar um produto </button></a>
-        }
-        <br>
-        <br>
-        @if(Model.conta is null)
-        {
             <h1>nada aq nao chefia</h1>
         }
+        else if(Model.conta.Role == Roles.Administrator)
+        {
+            <a class="text-white" asp-area="User" asp-controller="MainPage" asp-action="Insert" asp-route-id="@Model.produto.FirstOrDefault().Id"> <button class="btn btn-primary ">Adicionar um produto </button></a>
+            <br><br>
+            <h1><strong>Olá @Model.conta.Name</strong></h1>
+        }
         else
         {
-            <h1>@Model.conta.Name</h1>
+            <h1>Olá @Model.conta.Name</h1>
         }
+        <br>
+        <br>
+        
 
         <div class="container ListaDeProdutos p-4"> 
             @foreach (var prod in Model.produto)

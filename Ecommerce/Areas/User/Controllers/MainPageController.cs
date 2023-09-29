@@ -1,11 +1,9 @@
-﻿using System.Globalization;
-using Data;
-using Data.Unit;
+﻿using Data.Unit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Models;
-using Models.DTO;
-using Models.DTO.MainPageControllerDTO;
+using ModelsDTO.DTO.MainPageControllerDTO;
+using Services.Autenticacao;
 
 namespace EcommerceWeb.Areas.User.Controllers
 {
@@ -14,23 +12,26 @@ namespace EcommerceWeb.Areas.User.Controllers
     public class MainPageController : Controller
     {
         public IUnitOfWork _db { get; set; }
-        public MainPageController (IUnitOfWork db) 
+
+        public MainPageController(IUnitOfWork db)
         {
-            _db = db;
+            _db = db; 
         }
 
 
         #region Index
-        public IActionResult Index(string? id)
+        public IActionResult Index()
         {
             var FinalModel = new MainPageDTO();
-            if(id == null)
+            Account? user = new Autenticacao(_db).GettingUser();
+
+            if(user == null)
             {
                 FinalModel.conta = null;
             }
             else
             {
-                FinalModel.conta = _db.Account.GetById(c => c.Id == int.Parse(id));
+                FinalModel.conta = user;
             }
 
             FinalModel.produto = _db.Produto.GetAll();
@@ -47,8 +48,9 @@ namespace EcommerceWeb.Areas.User.Controllers
         public IActionResult Insert(string id)
         {   
 
-            InsertDTO insertdto = new InsertDTO();
-            insertdto.conta = _db.Account.GetById(c => c.Id == int.Parse(id));
+            InsertDTO insertdto = new InsertDTO(_db);
+            insertdto.GetAccount();
+
             IEnumerable<SelectListItem> categories = _db.Category.GetAll().Select(u => new SelectListItem
             {
                 Text = u.Name,
@@ -56,29 +58,36 @@ namespace EcommerceWeb.Areas.User.Controllers
             });
             ViewBag.Categories = categories;
 
-            return View(insertdto);
 
+            return View();
         }
 
         [HttpPost]
-        public IActionResult Insert(Produto produto)
+        public IActionResult Insert(InsertDTO insertDto)
         {
+
+            Produto? produto = insertDto.produto;
             _db.Produto.Insert(produto);
             return View();
+            
         }
 
         #endregion
 
         #region Details
-        /* public IActionResult Details(int id)
+        public IActionResult Details(int id)
         {
 
-            ProdutoDTO produtoVm = new ProdutoDTO
-            { produto = _db.Produto.GetById(c => c.Id == id)  };
-            produtoVm.category = _db.Category.GetById(c => c.Id == produtoVm.produto.CategoriaId);
+            Produto prod = _db.Produto.GetById(c => c.Id == id);
+            DetailsDTO model = new DetailsDTO(_db)
+            { 
+                produto = prod
+            };
+
+            model.ScriptZao();
             
-            return View(produtoVm);
-        }*/
+            return View(model);
+        }
         #endregion
 
         #region Edit

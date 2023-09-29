@@ -3,6 +3,7 @@ using Data.IRepository;
 using Data.Unit;
 using Microsoft.EntityFrameworkCore;
 using NuGet.Protocol.Core.Types;
+using Services.Autenticacao;
 
 namespace Ecommerce
 {
