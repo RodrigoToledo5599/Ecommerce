@@ -19,6 +19,8 @@ namespace ModelsDTO.DTO.MainPageControllerDTO
             _db = db;
         }
 
+        
+
         public void GetAccount()
         {
             conta = new Autenticacao(_db).GettingUser();
