@@ -98,6 +98,13 @@ namespace EcommerceWeb.Areas.User.Controllers
         #region Edit
         public IActionResult Edit(int id)
         {
+            Account conta = new Autenticacao(_db).GettingUser();
+            if(conta.Role != Models.Enums.Roles.Administrator)
+            {
+                return RedirectToAction("Index");
+            }
+
+
             string? categoria;
             var produto = _db.Produto.GetById(c => c.Id == id);
             if (produto.CategoriaId == null)
@@ -120,8 +127,14 @@ namespace EcommerceWeb.Areas.User.Controllers
         [HttpPost]
         public IActionResult Edit(Produto produto)
         {
-            _db.Produto.Edit(produto);
-            return RedirectToAction("Index");
+            Account conta = new Autenticacao(_db).GettingUser();
+            if (conta.Role != Models.Enums.Roles.Administrator)
+                return RedirectToAction("Index");
+            else
+            {
+                _db.Produto.Edit(produto);
+                return RedirectToAction("Index");
+            }
         }
 
         #endregion
