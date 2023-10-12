@@ -63,10 +63,12 @@ namespace EcommerceWeb.Areas.User.Controllers
         [HttpPost]
         public IActionResult Insert(Produto prod)
         {
-            if(prod == null)
-            {
+            Account conta = new Autenticacao(_db).GettingUser();
+            if (conta.Role != Models.Enums.Roles.Administrator)
+                return RedirectToAction("Index");
+            
+            else if (prod == null)
                 return View();
-            }
 
             else
             {
@@ -151,6 +153,11 @@ namespace EcommerceWeb.Areas.User.Controllers
         [HttpPost]
         public IActionResult Delete(Produto produto)
         {
+            Account conta = new Autenticacao(_db).GettingUser();
+            if (conta.Role != Models.Enums.Roles.Administrator)
+            {
+                return RedirectToAction("Index");
+            }
             _db.Produto.Delete(produto);
             return RedirectToAction("Index");
         }
