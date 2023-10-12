@@ -22,9 +22,14 @@ namespace ModelsDTO.DTO.MainPageControllerDTO
 
         public void GetCategoryName()
         {
-            int? ID = produto.CategoriaId;
+            int? ID;
+            if (produto.CategoriaId == null)
+                ID = 0;
+            else
+                ID = produto.CategoriaId;
+
             Category category = new Category();
-            if (ID != null )
+            if (ID != 0)
             {
                 category = _db.Category.GetById(c => c.Id == ID);
                 categoria = category.Name;
@@ -41,7 +46,7 @@ namespace ModelsDTO.DTO.MainPageControllerDTO
             conta = new Autenticacao(_db).GettingUser();
         }
 
-        public void ScriptZao()
+        public void AccountAndCategory()
         {
             GetAccount();
             GetCategoryName();

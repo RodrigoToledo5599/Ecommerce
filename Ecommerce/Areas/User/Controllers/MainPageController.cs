@@ -45,6 +45,7 @@ namespace EcommerceWeb.Areas.User.Controllers
         }
 
         #endregion
+
         #region Insert
 
         
@@ -83,15 +84,13 @@ namespace EcommerceWeb.Areas.User.Controllers
 		#region Details
 		public IActionResult Details(int id)
         {
-
-            Produto prod = _db.Produto.GetById(c => c.Id == id);
+            Produto prod = new Produto();
+            prod = _db.Produto.GetById(c => c.Id == id);
             DetailsDTO model = new DetailsDTO(_db)
             { 
                 produto = prod
             };
-
-            model.ScriptZao();
-            
+            model.AccountAndCategory();
             return View(model);
         }
         #endregion

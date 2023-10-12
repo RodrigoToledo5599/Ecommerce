@@ -39,7 +39,7 @@ namespace Data.Repository
 
         T IRepository<T>.GetById(Expression<Func<T, bool>> filter)
         {
-            T register = _db.Set<T>().FirstOrDefault(filter);
+            T register = _db.Set<T>().Where(filter).FirstOrDefault();
             return register;
         }
 

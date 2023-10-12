@@ -20,7 +20,7 @@ namespace EcommerceWeb.Areas.User.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(string email, string senha)
+        public IActionResult Login(string email= "ADM@gmail.com", string senha= "adm123")
         {
             Account? account = new Autenticacao(_db).LoggingUser(email, senha);
 
