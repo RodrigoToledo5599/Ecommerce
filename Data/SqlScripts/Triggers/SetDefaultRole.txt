@@ -8,11 +8,11 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TRIGGER [dbo].[SetDefaultRole] ON [dbo].[Contas]
+CREATE TRIGGER [dbo].[SetDefaultRole] ON [dbo].[Account]
 AFTER INSERT 
 AS
 BEGIN
-	UPDATE Contas
+	UPDATE Account
 	SET Role = 2
 	WHERE Role is NULL;
 	PRINT 'Default values updated';

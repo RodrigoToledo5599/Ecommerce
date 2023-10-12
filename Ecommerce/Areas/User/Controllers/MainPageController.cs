@@ -1,4 +1,5 @@
-﻿using Data.Unit;
+﻿using AutoMapper;
+using Data.Unit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Models;
@@ -11,11 +12,14 @@ namespace EcommerceWeb.Areas.User.Controllers
     //[BindProperties]
     public class MainPageController : Controller
     {
-        public IUnitOfWork _db { get; set; }
+        public IUnitOfWork _db;
+        private readonly IMapper _mapper;
 
-        public MainPageController(IUnitOfWork db)
+
+		public MainPageController(IUnitOfWork db,IMapper mapper)
         {
             _db = db; 
+            _mapper = mapper;
         }
 
 
@@ -41,41 +45,43 @@ namespace EcommerceWeb.Areas.User.Controllers
         }
 
         #endregion
-
         #region Insert
 
         
-        public IActionResult Insert(string id)
+        public IActionResult Insert()
         {   
-
-            InsertDTO insertdto = new InsertDTO(_db);
-            insertdto.GetAccount();
-
             IEnumerable<SelectListItem> categories = _db.Category.GetAll().Select(u => new SelectListItem
             {
                 Text = u.Name,
                 Value = u.Id.ToString(),
             });
             ViewBag.Categories = categories;
-
-
             return View();
         }
 
         [HttpPost]
-        public IActionResult Insert(InsertDTO insertDto)
+        public IActionResult Insert(Produto prod)
         {
+            if(prod == null)
+            {
+                return View();
+            }
 
-            Produto? produto = insertDto.produto;
-            _db.Produto.Insert(produto);
-            return View();
-            
-        }
+            else
+            {
+                _mapper.Map<ProdutoDTO>(prod);
+                prod.Id = 0; 
+				_db.Produto.Insert(prod);
+                return RedirectToAction("Index");
+            }
+			// o entity framework estava lançando um valor default de 1 para o Id mesmo com o IDENTITY_INSERT Produto ON no sql
+			//entao a solução é manualmente mudar o ID para 0 que fará com que o SQL lide com o valor do Id sozinho (simples auto increment no caso).
+		}
 
-        #endregion
+		#endregion
 
-        #region Details
-        public IActionResult Details(int id)
+		#region Details
+		public IActionResult Details(int id)
         {
 
             Produto prod = _db.Produto.GetById(c => c.Id == id);

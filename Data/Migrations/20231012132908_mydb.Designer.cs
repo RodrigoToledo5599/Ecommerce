@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230914230459_apaplawd")]
-    partial class apaplawd
+    [Migration("20231012132908_mydb")]
+    partial class mydb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -63,6 +63,14 @@ namespace Data.Migrations
                             Name = "123",
                             Role = 0,
                             Senha = "123"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Email = "ADM@gmail.com",
+                            Name = "ADM",
+                            Role = 1,
+                            Senha = "adm123"
                         });
                 });
 
@@ -151,6 +159,58 @@ namespace Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Models.Favoritos", b =>
+                {
+                    b.Property<int>("ProdutoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("int");
+
+                    b.HasIndex("ProdutoId");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("Favoritos");
+                });
+
+            modelBuilder.Entity("Models.ImagensProdutos", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Imagem")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ProdutoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProdutoId");
+
+                    b.ToTable("ImagensProdutos");
+                });
+
+            modelBuilder.Entity("Models.ItemCarrinho", b =>
+                {
+                    b.Property<int>("ProdutoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("int");
+
+                    b.HasIndex("ProdutoId");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("ItemCarrinho");
+                });
+
             modelBuilder.Entity("Models.Produto", b =>
                 {
                     b.Property<int>("Id")
@@ -165,18 +225,6 @@ namespace Data.Migrations
                     b.Property<string>("Descricao")
                         .HasMaxLength(511)
                         .HasColumnType("nvarchar(511)");
-
-                    b.Property<string>("Imagem1")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Imagem2")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Imagem3")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Imagem4")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImagemPrincipal")
                         .HasColumnType("nvarchar(max)");
@@ -244,7 +292,111 @@ namespace Data.Migrations
                             Descricao = "Samsung Smart TV 50 Polegadas com Processador Crystal 4K, Tela sem limites, Visual Livre de Cabos e Alexa integrada\r\nCom design simples e visual livre de cabos, sua nova Smart TV 50 Polegada vai ser a Samsung Crystal 4K\r\n\r\nCom organização e elegância, a Samsung Smart TV 50 Polegadas possui sitema de organização de cabos que ficam ligados à TV que ficam ocultos dentro das canaletas localizadas atrás da TV, que permite um visual mais limpo e clean.",
                             Name = "Smart Tv Sansung 50 polegadas UHD 4K",
                             Price = 2400f
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CategoriaId = 1,
+                            Name = "Head Set com fio RedDragon",
+                            Price = 219f
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CategoriaId = 3,
+                            Name = "Monitor gamer Husky 27'' QHD 165hz ",
+                            Price = 1300f
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CategoriaId = 8,
+                            Name = "Tv 8k Sansung",
+                            Price = 4500f
+                        },
+                        new
+                        {
+                            Id = 11,
+                            CategoriaId = 5,
+                            Name = "placa b450m am4 ddr4 Terabyte ",
+                            Price = 580f
+                        },
+                        new
+                        {
+                            Id = 12,
+                            CategoriaId = 4,
+                            Name = "Motorola Moto E13 64GB 4GB RAM Camera 13MB",
+                            Price = 630f
+                        },
+                        new
+                        {
+                            Id = 13,
+                            CategoriaId = 7,
+                            Name = "ryzen 5 3600X",
+                            Price = 800f
+                        },
+                        new
+                        {
+                            Id = 14,
+                            CategoriaId = 10,
+                            Name = "Teclado Gamer Hyper X Alloy Core RGB ABNT2",
+                            Price = 200f
+                        },
+                        new
+                        {
+                            Id = 15,
+                            CategoriaId = 12,
+                            Descricao = "PCIe GEN4x4\n Leitura: 7400 MB/s\nGravação: 6400 MB/s",
+                            Name = "SSD 2TB XPG S70 Blade",
+                            Price = 1040f
                         });
+                });
+
+            modelBuilder.Entity("Models.Favoritos", b =>
+                {
+                    b.HasOne("Models.Produto", "Produto")
+                        .WithMany()
+                        .HasForeignKey("ProdutoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Models.Account", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Produto");
+
+                    b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("Models.ImagensProdutos", b =>
+                {
+                    b.HasOne("Models.Produto", "Produto")
+                        .WithMany("ImagensProdutos")
+                        .HasForeignKey("ProdutoId");
+
+                    b.Navigation("Produto");
+                });
+
+            modelBuilder.Entity("Models.ItemCarrinho", b =>
+                {
+                    b.HasOne("Models.Produto", "Produto")
+                        .WithMany()
+                        .HasForeignKey("ProdutoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Models.Account", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Produto");
+
+                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("Models.Produto", b =>
@@ -254,6 +406,11 @@ namespace Data.Migrations
                         .HasForeignKey("CategoriaId");
 
                     b.Navigation("Categoria");
+                });
+
+            modelBuilder.Entity("Models.Produto", b =>
+                {
+                    b.Navigation("ImagensProdutos");
                 });
 #pragma warning restore 612, 618
         }

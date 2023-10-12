@@ -39,7 +39,6 @@ namespace Services.Autenticacao
 
         }
 
-
         public void SavingUser(Account user)
         {
             StreamWriter sw = new StreamWriter(path);

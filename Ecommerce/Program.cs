@@ -1,7 +1,10 @@
 using Data;
 using Data.IRepository;
 using Data.Unit;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using ModelsDTO.Profiles;
 using NuGet.Protocol.Core.Types;
 using Services.Autenticacao;
 
@@ -19,6 +22,8 @@ namespace Ecommerce
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddRazorPages();
             builder.Services.AddControllersWithViews();
+            builder.Services.AddAutoMapper(typeof(Profiles));
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

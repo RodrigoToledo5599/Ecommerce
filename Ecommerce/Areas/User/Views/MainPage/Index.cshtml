@@ -41,7 +41,7 @@
             @foreach (var prod in Model.produto)
             {
                 <div class="produto p-2 ">
-                    <a href="/User/MainPage/Details/@prod.Id">
+                    <a asp-area="User" asp-controller="MainPage" asp-action="Details" itemid="@prod.Id">
                         <div class="imagem col-6"></div>
                         <br>
                         <div class="col-6">

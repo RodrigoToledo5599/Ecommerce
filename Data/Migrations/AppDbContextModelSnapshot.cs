@@ -60,6 +60,14 @@ namespace Data.Migrations
                             Name = "123",
                             Role = 0,
                             Senha = "123"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Email = "ADM@gmail.com",
+                            Name = "ADM",
+                            Role = 1,
+                            Senha = "adm123"
                         });
                 });
 

@@ -1,6 +1,7 @@
-﻿@using Models;
-@using ModelsDTO.DTO.MainPageControllerDTO;
-@model InsertDTO
+﻿@using ModelsDTO.DTO.MainPageControllerDTO;
+
+@model ProdutoDTO
+
 
 <head>
 
@@ -20,44 +21,45 @@
 	<form method="post" >
 
 		<div class="row">
-			<label asp-for="@Model.produto.Name" class="p-0">Name</label>
-			<input asp-for="@Model.produto.Name" class="form-control">
-			<span asp-validation-for="@Model.produto.Name" class="text-danger"></span>
+			<label asp-for="Name" class="p-0">Name</label>
+			<input asp-for="Name" class="form-control">
+			<span asp-validation-for="Name" class="text-danger"></span>
 		</div>
 		<br>
 
 		<div class="row">
-			<label asp-for="@Model.produto.Descricao" class="p-0">Descrição</label>
-			<input asp-for="@Model.produto.Descricao" class="form-control">
-			<span asp-validation-for="@Model.produto.Descricao" class="text-danger"></span>
+			<label asp-for="Descricao" class="p-0">Descrição</label>
+			<input asp-for="Descricao" class="form-control">
+			<span asp-validation-for="Descricao" class="text-danger"></span>
 		</div>
 		<br>
 
 		<div class="row">
-			<label asp-for="@Model.produto.Price" class="p-0">Price</label>
-			<input asp-for="@Model.produto.Price" class="form-control">
-			<span asp-validation-for="@Model.produto.Price" class="text-danger"></span>
+			<label asp-for="Price" class="p-0">Price</label>
+			<input asp-for="Price" class="form-control">
+			<span asp-validation-for="Price" class="text-danger"></span>
 		</div>
 		<br>
-		
 
 		<div class="row">
-			<label asp-for="@Model.produto.CategoriaId" class="p-0">CategoriaId</label>
-			<select asp-for="@Model.produto.CategoriaId" asp-items="ViewBag.Categories">
+			<label asp-for="CategoriaId" class="p-0">CategoriaId</label>
+			<select asp-for="CategoriaId" asp-items="ViewBag.Categories">
 				<option disabled-selected>Choose your category</option>
 			</select>
 			
-			<span asp-validation-for="@Model.produto.CategoriaId" class="text-danger"></span>
+			<span asp-validation-for="CategoriaId" class="text-danger"></span>
 		</div>
 		
 
 		<br>
 		<br>
 
+	
+		@**@
 		<button class="btn btn-primary" asp-area="User" asp-controller="MainPage" asp-action="Insert">Adicionar</button>
+		<button class="btn btn-primary" asp-area="User" asp-controller="MainPage" asp-action="Index">Voltar para a página principal</button>
 
 	</form>
+	
 
-	<br>
-	<br>
 </body>
