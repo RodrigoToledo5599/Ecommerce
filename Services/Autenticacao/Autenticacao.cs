@@ -10,7 +10,7 @@ namespace Services.Autenticacao
 {
 	public class Autenticacao 
 	{
-        public IUnitOfWork _db { get; set; }
+        private readonly IUnitOfWork _db;
 
         public string path = Environment.CurrentDirectory + @"\Usuario\UsuarioLogado.txt";
         

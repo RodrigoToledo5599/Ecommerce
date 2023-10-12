@@ -101,10 +101,18 @@ namespace EcommerceWeb.Areas.User.Controllers
             string? categoria;
             var produto = _db.Produto.GetById(c => c.Id == id);
             if (produto.CategoriaId == null)
-                categoria = "N/A";
+                categoria = "Sem Categoria";
             else
                 categoria = _db.Category.GetById(c => c.Id == produto.CategoriaId).Name;
 
+
+            IEnumerable<SelectListItem> categories = _db.Category.GetAll().Select(u => new SelectListItem
+            {
+                Text = u.Name,
+                Value = u.Id.ToString(),
+            });
+
+            ViewBag.Categories = categories;
             ViewData["categoria"] = categoria;
             return View(produto);
         }
@@ -112,12 +120,8 @@ namespace EcommerceWeb.Areas.User.Controllers
         [HttpPost]
         public IActionResult Edit(Produto produto)
         {
-            if (ModelState.IsValid)
-            {
-                _db.Produto.Edit(produto);
-            }
-            return View(produto);
-            
+            _db.Produto.Edit(produto);
+            return RedirectToAction("Index");
         }
 
         #endregion
