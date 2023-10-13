@@ -166,27 +166,38 @@ namespace EcommerceWeb.Areas.User.Controllers
         #endregion
 
         #region FavoritosRegion
-        /*
-        [HttpPost]
-        public IActionResult AddFavorito(int idItem)
+
+        
+        public IActionResult Favoritos(int idItem)
         {
+            idItem = 3; // porra idItem nao esta recebendo valor nenhum AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+            Produto prod = _db.Produto.GetById(c => c.Id == idItem);
+            return View(prod);
+        }
+
+
+
+        [HttpPost]
+        public IActionResult FavoritosPost(int idItem)
+        {
+            idItem = 3;  // porra idItem nao esta recebendo valor nenhum AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
             Account conta = new Autenticacao(_db).GettingUser();
             Produto prod = _db.Produto.GetById(c => c.Id == idItem);
             FavoritosFunctionalities favs = new FavoritosFunctionalities(_db,conta);
             var favoritos = favs.ListandoOsFavoritos();
             bool isFav = favs.CheckIfProductIsFavorite(prod);
-            if (isFav is true)
+            if (isFav is false)
             {
                 _db.Favoritos.InsertAFavorite(conta, prod);
-                return Ok("Produto adicionado a lista de favoritos");
+                return RedirectToAction("Index");
             }
             else
-                return Ok();
+                return RedirectToAction("Index");
 
 
 
         }
-        */
+        
         
 
 

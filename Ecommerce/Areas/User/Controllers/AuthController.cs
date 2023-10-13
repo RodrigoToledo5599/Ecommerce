@@ -8,7 +8,7 @@ namespace EcommerceWeb.Areas.User.Controllers
 	[Area("User")]
 	public class AuthController : Controller
     {
-        private readonly IUnitOfWork _db;
+        public IUnitOfWork _db;
         public AuthController(IUnitOfWork db)
         {
             _db = db;

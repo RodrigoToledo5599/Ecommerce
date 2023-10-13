@@ -1,1 +1,35 @@
-﻿
+﻿@using Models;
+@using ModelsDTO.DTO.MainPageControllerDTO;
+@model Produto
+
+
+
+
+
+<h1>Você quer adicionar este produto aos seus favoritos??</h1>
+<br><br>
+<form method="post">
+
+    <table class="table table-dark d-flex flex-row">
+        <tbody>
+        
+            <tr>
+                <td>Name:</td>
+                <td></td>
+                <td>@Model.Name</td>
+            </tr>
+
+            <tr>
+                <td>Price:</td>
+                <td></td>
+                <td>@Model.Price</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    <button class="btn btn-primary" asp-area="User" asp-controller="MainPage" asp-action="FavoritosPost" asp-route-id="@Model.Id">
+        <p>Adicionar</p>
+    </button>
+</form>

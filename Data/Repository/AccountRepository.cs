@@ -11,7 +11,7 @@ namespace Data.Repository
 {
     public class AccountRepository :Repository<Account>, IAccountRepository
     {
-        public AppDbContext _db { get; }
+        public AppDbContext _db { get; set; }
         public AccountRepository(AppDbContext db) : base(db) 
         {
             _db = db;
@@ -19,7 +19,7 @@ namespace Data.Repository
 
 		public Account Logging(string email,string senha)
 		{
-			Account? account = _db.Set<Account>().Where(c => c.Email == email && c.Senha == senha).FirstOrDefault();    
+			Account? account = _db.Set<Account>().FirstOrDefault(c => c.Email == email && c.Senha == senha);    
             return account;
 		}
 	}

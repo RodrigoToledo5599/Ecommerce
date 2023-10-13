@@ -9,10 +9,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Models
 {
-	[Keyless]
 	public class Favoritos
 	{
-
+		[Key]
+		public int Id { get; set; }
 		
 		[ForeignKey("Usuario")]
 		public int UsuarioId { get; set; }
