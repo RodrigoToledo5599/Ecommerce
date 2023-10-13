@@ -168,21 +168,19 @@ namespace EcommerceWeb.Areas.User.Controllers
         #region FavoritosRegion
 
         
-        public IActionResult Favoritos(int idItem)
+        public IActionResult Favorites(int id)
         {
-            idItem = 3; // porra idItem nao esta recebendo valor nenhum AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-            Produto prod = _db.Produto.GetById(c => c.Id == idItem);
+            Produto prod = _db.Produto.GetById(c => c.Id == id);
             return View(prod);
         }
 
 
 
         [HttpPost]
-        public IActionResult FavoritosPost(int idItem)
+        public IActionResult FavoritesPost(int id)
         {
-            idItem = 3;  // porra idItem nao esta recebendo valor nenhum AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
             Account conta = new Autenticacao(_db).GettingUser();
-            Produto prod = _db.Produto.GetById(c => c.Id == idItem);
+            Produto prod = _db.Produto.GetById(c => c.Id == id);
             FavoritosFunctionalities favs = new FavoritosFunctionalities(_db,conta);
             var favoritos = favs.ListandoOsFavoritos();
             bool isFav = favs.CheckIfProductIsFavorite(prod);
