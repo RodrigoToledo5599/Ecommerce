@@ -164,7 +164,19 @@ namespace EcommerceWeb.Areas.User.Controllers
 
         #endregion
 
+        #region AddFavorito
+        [HttpPost]
+        public IActionResult AddFavorito(int idItem)
+        {
+            Account conta = new Autenticacao(_db).GettingUser();
 
+
+
+            return View();
+        }
+
+        
+        #endregion
     }
 
 }
