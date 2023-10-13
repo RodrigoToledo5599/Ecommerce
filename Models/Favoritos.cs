@@ -20,7 +20,7 @@ namespace Models
 
 
 
-
+		
 
 		[ForeignKey("Produto")]
 		public int ProdutoId { get; set; }

@@ -11,7 +11,7 @@ namespace Data.Repository
 {
     public class AccountRepository :Repository<Account>, IAccountRepository
     {
-        public AppDbContext _db;
+        public AppDbContext _db { get; }
         public AccountRepository(AppDbContext db) : base(db) 
         {
             _db = db;

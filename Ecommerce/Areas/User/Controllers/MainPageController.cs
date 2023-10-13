@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Models;
 using ModelsDTO.DTO.MainPageControllerDTO;
 using Services.Autenticacao;
+using Services.Favorites;
 
 namespace EcommerceWeb.Areas.User.Controllers
 {
@@ -164,18 +165,42 @@ namespace EcommerceWeb.Areas.User.Controllers
 
         #endregion
 
-        #region AddFavorito
+        #region FavoritosRegion
+        /*
         [HttpPost]
         public IActionResult AddFavorito(int idItem)
         {
             Account conta = new Autenticacao(_db).GettingUser();
+            Produto prod = _db.Produto.GetById(c => c.Id == idItem);
+            FavoritosFunctionalities favs = new FavoritosFunctionalities(_db,conta);
+            var favoritos = favs.ListandoOsFavoritos();
+            bool isFav = favs.CheckIfProductIsFavorite(prod);
+            if (isFav is true)
+            {
+                _db.Favoritos.InsertAFavorite(conta, prod);
+                return Ok("Produto adicionado a lista de favoritos");
+            }
+            else
+                return Ok();
 
 
 
-            return View();
         }
-
+        */
         
+
+
+
+
+
+
+
+
+
+
+
+
+
         #endregion
     }
 
