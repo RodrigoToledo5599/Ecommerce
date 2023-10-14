@@ -2,9 +2,10 @@
 
 namespace EcommerceWeb.Areas.User.Controllers
 {
+	[Area("User")]
 	public class AccountController : Controller
 	{
-		public IActionResult Index()
+		public IActionResult CrieSuaConta()
 		{
 			return View();
 		}
