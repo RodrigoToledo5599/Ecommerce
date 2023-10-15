@@ -25,7 +25,7 @@ namespace Models
         [StringLength(127)]
         public string Senha { get; set; }
 
-        public Roles Role { get; set; }
+        public Roles? Role { get; set; }
 
 
         
