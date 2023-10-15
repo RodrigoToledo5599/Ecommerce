@@ -1,0 +1,21 @@
+﻿/*
+USE [E-commerce]
+GO
+
+
+
+
+CREATE VIEW [FavoritosView] as
+
+SELECT fv.Id as [Id do Registro de favorito], fv.UsuarioId as [Id do Usuario],ac.Name as [Nome do Usuario],pd.Id as [Id do Produto],pd.Name as [Nome do Produto],ct.Id as [Id da Categoria], ct.Name as [Categoria do produto]
+FROM Favoritos fv
+INNER JOIN Account ac
+ON fv.UsuarioId = ac.Id
+INNER JOIN Produto pd
+ON pd.Id = fv.ProdutoId
+INNER JOIN Category ct
+ON pd.CategoriaId = ct.Id
+
+
+
+*/

@@ -12,5 +12,7 @@ namespace Data.IRepository
     {
         IEnumerable<Favoritos> GetAllWithFilter(Account conta ,Expression<Func<Favoritos, bool>> filter);
         Favoritos InsertAFavorite(Account conta,Produto prod);
-    }
+        Favoritos? FindFavoriteRegister(Account conta, Produto produto);
+
+	}
 }

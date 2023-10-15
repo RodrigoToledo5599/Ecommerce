@@ -23,9 +23,9 @@ namespace Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Produto>().HasData(
-                new Produto { Id = 1, Name = "Tv", Price = 3000,CategoriaId = 8 },
+                new Produto { Id = 1, Name = "Smart TV 70 Polegadas Samsung UHD 4K, 3 HDMI, 1 USB, Bluetooth, Wi-Fi, Gaming Hub", Price = 3500,CategoriaId = 8 },
                 new Produto { Id = 2, Name = "Celular", Price = 760, CategoriaId = 4 },
-                new Produto { Id = 3, Name = "Pc Gamer", Price = 9000, }, // sem categoria
+                new Produto { Id = 3, Name = "Pc Gamer", Price = 9000, },
                 new Produto { Id = 4, Name = "Arduino Uno", Price = 50, CategoriaId = 2 },
                 new Produto { Id = 5, Name = "Esp-32", Price = 70, CategoriaId = 2 },
                 new Produto { Id = 6, Name = "Head Set Gamer Hyper X sem fio", Price = 650, CategoriaId = 1 },
@@ -40,7 +40,14 @@ namespace Data
 				new Produto { Id = 12, Name = "Motorola Moto E13 64GB 4GB RAM Camera 13MB", Price = 630, CategoriaId = 4 },
 				new Produto { Id = 13, Name = "ryzen 5 3600X", Price = 800, CategoriaId = 7 },
 				new Produto { Id = 14, Name = "Teclado Gamer Hyper X Alloy Core RGB ABNT2", Price = 200, CategoriaId = 10 },
-				new Produto { Id = 15, Name = "SSD 2TB XPG S70 Blade", Price = 1040, CategoriaId = 12, Descricao= "PCIe GEN4x4\n Leitura: 7400 MB/s\nGravação: 6400 MB/s" }
+				new Produto { Id = 15, Name = "SSD 2TB XPG S70 Blade", Price = 1040, CategoriaId = 12, Descricao= "PCIe GEN4x4\n Leitura: 7400 MB/s\nGravação: 6400 MB/s" },
+				new Produto { Id = 16, Name = "Console Sony PlayStation 5 + Jogo EA Sports FC 24\r\nSony\r\n(0)\r\n", Price = 3905, CategoriaId = 16 },
+				new Produto { Id = 17, Name = "Mouse Gamer Redragon Cobra, Chroma RGB, 12400DPI, 7 Botões, Preto", Price = 109, CategoriaId = 11 },
+				new Produto { Id = 18, Name = "Smartphone Motorola Moto E13, 64GB, 4GB RAM, Octa Core, Câmera 13MP, Tela de 6.5, Grafite", Price = 770, CategoriaId = 4 },
+				new Produto { Id = 19, Name = "Memória Gamer Husky Gaming Avalanche, 16GB, 3200MHz, DDR4", Price = 200, CategoriaId = 17 },
+				new Produto { Id = 20, Name = "Processador AMD Ryzen 7 5700X, 3.4GHz (4.6GHz Max Turbo), Cache 36MB, AM4", Price = 1240, CategoriaId = 7 },
+				new Produto { Id = 21, Name = "SSD 480 GB Adata Ultimate SU650, Leitura: 550MB/s e Gravação: 510MB/s", Price = 130, CategoriaId = 12 },
+				new Produto { Id = 22, Name = "Smart TV 32 Polegadas AOC Roku HD LED, 3 HDMI, 1 USB, Wi-Fi", Price = 930, CategoriaId = 8 }
 
 
 				);
@@ -59,7 +66,11 @@ namespace Data
                 new Category { Id = 10, Name= "Teclado"},
                 new Category { Id = 11, Name= "Mouse"},
                 new Category { Id = 12, Name= "SSD"},
-                new Category { Id = 13, Name= "HD"}
+                new Category { Id = 13, Name= "HD"},
+                new Category { Id = 14, Name= "Computador"},
+                new Category { Id = 15, Name= "Notebook"},
+                new Category { Id = 16, Name= "Console Video Game"},
+                new Category { Id = 17, Name= "Memoria Ram"}
                 );
 
 

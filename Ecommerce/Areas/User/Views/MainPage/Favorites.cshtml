@@ -30,6 +30,6 @@
     </table>
 
     <button class="btn btn-primary" asp-area="User" asp-controller="MainPage" asp-action="FavoritesPost" asp-route-id="@Model.Id">
-        <p>Adicionar</p>
+        <p>@ViewData["acao"]</p>
     </button>
 </form>

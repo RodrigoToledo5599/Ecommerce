@@ -170,10 +170,19 @@ namespace EcommerceWeb.Areas.User.Controllers
         
         public IActionResult Favorites(int id)
         {
-            Produto prod = _db.Produto.GetById(c => c.Id == id);
-            return View(prod);
-        }
+			ViewData["acao"] = "";
+			Account conta = new Autenticacao(_db).GettingUser();
+			Produto prod = _db.Produto.GetById(c => c.Id == id);
+            FavoritosFunctionalities favfunc = new FavoritosFunctionalities(_db,conta);
+			Favoritos? registro = _db.Favoritos.FindFavoriteRegister(conta, prod);
+			
+            if (registro == null)
+			    ViewData["acao"] = "Adicionar";
+			else
+			    ViewData["acao"] = "Deletar";
 
+			return View(prod);
+        }
 
 
         [HttpPost]
@@ -182,32 +191,18 @@ namespace EcommerceWeb.Areas.User.Controllers
             Account conta = new Autenticacao(_db).GettingUser();
             Produto prod = _db.Produto.GetById(c => c.Id == id);
             FavoritosFunctionalities favs = new FavoritosFunctionalities(_db,conta);
-            var favoritos = favs.ListandoOsFavoritos();
-            bool isFav = favs.CheckIfProductIsFavorite(prod);
-            if (isFav is false)
+            Favoritos? registro =_db.Favoritos.FindFavoriteRegister(conta, prod);
+            if (registro == null)
             {
                 _db.Favoritos.InsertAFavorite(conta, prod);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index");  
             }
             else
+            {
+                _db.Favoritos.Delete(registro);
                 return RedirectToAction("Index");
-
-
-
+            }
         }
-        
-        
-
-
-
-
-
-
-
-
-
-
-
 
 
         #endregion

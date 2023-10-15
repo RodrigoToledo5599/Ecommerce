@@ -25,16 +25,20 @@ namespace Data.Repository
 
         public Favoritos InsertAFavorite(Account conta, Produto prod)
         {
-            Favoritos favoritos = new Favoritos()
+            Favoritos favorito = new Favoritos()
             {
                 UsuarioId = conta.Id,
                 ProdutoId = prod.Id,
             };
-
-            _db.Favoritos.Add(favoritos);
+            _db.Favoritos.Add(favorito);
             _db.SaveChanges();
-            return favoritos;
-
+            return favorito;
         }
+
+        public Favoritos? FindFavoriteRegister(Account conta, Produto prod)
+        {
+            Favoritos? favorito = _db.Favoritos.FirstOrDefault(c => c.UsuarioId == conta.Id && c.ProdutoId == prod.Id );
+            return favorito;
+		}
     }
 }
