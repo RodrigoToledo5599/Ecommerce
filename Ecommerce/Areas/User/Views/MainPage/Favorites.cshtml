@@ -5,8 +5,14 @@
 
 
 
-
-<h1>Você quer adicionar este produto aos seus favoritos??</h1>
+@if(ViewData["acao"] == "Deletar")
+{
+    <h1>Você quer @ViewData["acao"] este produto dos seus favoritos??</h1>
+}
+else
+{
+    <h1>Você quer @ViewData["acao"] este produto aos seus favoritos??</h1>
+}
 <br><br>
 <form method="post">
 
