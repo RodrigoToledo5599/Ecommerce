@@ -42,10 +42,7 @@
             {
                 if(Model.conta != null)
                 {
-                    <div class="produto p-2 ">
-                        <a asp-area="User" asp-controller="MainPage" asp-action="Favorites" asp-route-id="@prod.Id">
-                            <i class="bi bi-heart display-6"></i>
-                        </a>
+                    <div class="Produto p-2 ">
 
                         <a asp-area="User" asp-controller="MainPage" asp-action="Details" asp-route-id="@prod.Id">
                             <div class="imagem col-6"></div>
@@ -57,8 +54,11 @@
 
                                 <div class="row ">
                                     <p>R$ @prod.Price</p>
+                                    <a asp-area="User" asp-controller="MainPage" asp-action="Favorites" asp-route-id="@prod.Id">
+                                        <i class="bi bi-heart display-6 favoriteItem"></i>
+                                    </a>
                                 </div>
-
+                                
                             </div>
 
                         </a>

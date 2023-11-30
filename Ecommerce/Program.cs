@@ -21,8 +21,9 @@ namespace Ecommerce
                 options.UseSqlServer(connectionString));
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddRazorPages();
-            builder.Services.AddControllersWithViews();
+            builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
             builder.Services.AddAutoMapper(typeof(Profiles));
+            
 
             var app = builder.Build();
 

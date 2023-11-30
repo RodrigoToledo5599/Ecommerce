@@ -10,17 +10,16 @@
     justify-content: space-around;
     border: 1px solid aqua;
     width: 160px;
-    height: 350px;
+    height: 950px;
     margin: 20px;
     margin-right:50px;
-    border: solid 1px black;
+    box-shadow: black;
 }
 
 
 .produto:hover {
-    border: 5px solid black;
+    box-shadow: 2px 2px 2px 2px rgb(255,255,255);
     transition: 0.4s;
-    z-index: 1;
 }
 /*
 .produto .imagem:hover{
@@ -45,3 +44,7 @@
     
 }
 
+.favoriteItem:hover{
+    background-color: darkorange;
+    transition: 0.4s;
+}
