@@ -18,7 +18,7 @@
 
 
 .produto:hover {
-    box-shadow: 2px 2px 2px 2px rgb(255,255,255);
+    box-shadow: 2px 2px 2px 2px rgb(0,0,0);
     transition: 0.4s;
 }
 /*

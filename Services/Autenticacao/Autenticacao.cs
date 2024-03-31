@@ -3,9 +3,6 @@ using Models;
 
 
 
-
-
-
 namespace Services.Autenticacao
 {
 	public class Autenticacao 

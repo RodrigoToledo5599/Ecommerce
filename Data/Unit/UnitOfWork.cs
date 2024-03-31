@@ -16,6 +16,8 @@ namespace Data.Unit
         public IAccountRepository Account { get; private set; }
         public IFavoritosRepository Favoritos { get; private set; }
 
+        public IItemCarrinhoRepository ItemCarrinho { get; private set; }
+
         public UnitOfWork(AppDbContext db)
         {
             _db = db;
@@ -23,6 +25,7 @@ namespace Data.Unit
             Category = new CategoryRepository(_db);
             Account = new AccountRepository(_db);
             Favoritos = new FavoritosRepository(_db);
+            ItemCarrinho = new ItemCarrinhoRepository(_db);
         }
 
     }

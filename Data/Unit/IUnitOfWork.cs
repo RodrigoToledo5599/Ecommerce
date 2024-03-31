@@ -13,6 +13,7 @@ namespace Data.Unit
         ICategoryRepository Category { get; }
         IAccountRepository Account { get; }
         IFavoritosRepository Favoritos { get; }
+        IItemCarrinhoRepository ItemCarrinho { get; }
 
 
 
